@@ -25,8 +25,13 @@ CONFIG_DIR = ROOT / "configs"
 REPORT_DIR = ROOT / "reports"
 MAX_FILES_PER_REPO = 40
 MAX_FILE_BYTES = 1_500_000
-TIMEOUT_SECONDS = 3
+TIMEOUT_SECONDS = 2
+PROBE_ATTEMPTS = 3
+MAX_ACCEPTABLE_TCP_MS = 1200
+MAX_TCP_JITTER_MS = 500
 MAX_TESTS = 500
+OUTPUT_LIMIT = 15
+PER_OPERATOR_LIMIT = 5
 UA = "scan_link-daily-monitor/1.0"
 SCHEMES = ("vless://", "vmess://", "trojan://", "ss://", "socks://", "ssr://", "hy2://", "hysteria2://", "tuic://")
 
@@ -112,7 +117,10 @@ def extract_configs(text: str) -> list[str]:
             continue
         for match in re.finditer(r"(?i)(?:vless|vmess|trojan|ss|ssr|socks|hy2|hysteria2|tuic)://[^\s\"'<>]+", line):
             item = match.group(0).rstrip("),;")
-            if len(item) < 12:
+            # Reject obvious truncation artifacts before endpoint parsing.
+            if len(item) < 12 or item.endswith(("{", "[", "=", "&", "?", ":")):
+                continue
+            if not is_valid_config(item):
                 continue
             found.append(item)
     return found
@@ -151,14 +159,60 @@ def endpoint(config: str) -> tuple[str, int] | None:
         pass
     return None
 
+def is_valid_config(config: str) -> bool:
+    """Conservative syntax/endpoint validation; this does not prove tunnel functionality."""
+    if any(ch in config for ch in ("\\n", "\\r", "<", ">")):
+        return False
+    if config.endswith(("{", "[", "=", "&", "?")) or "&extra={" in config:
+        return False
+    scheme = config.split("://", 1)[0].lower() if "://" in config else ""
+    ep = endpoint(config)
+    if not ep:
+        return False
+    host, port = ep
+    if not host or not (1 <= port <= 65535):
+        return False
+    if scheme == "vmess":
+        try:
+            body = config.split("://", 1)[1].split("#", 1)[0]
+            raw = base64.urlsafe_b64decode(body + "=" * (-len(body) % 4))
+            obj = json.loads(raw.decode("utf-8"))
+            return bool(obj.get("add") and int(obj.get("port", 0)) and obj.get("id"))
+        except Exception:
+            return False
+    if scheme in ("vless", "trojan"):
+        authority = config.split("://", 1)[1].split("?", 1)[0].split("#", 1)[0]
+        userinfo = authority.rsplit("@", 1)[0] if "@" in authority else ""
+        return bool(userinfo and not userinfo.endswith(":"))
+    if scheme in ("ss", "ssr", "socks", "hy2", "hysteria2", "tuic"):
+        return True
+    return False
+
+
 def tcp_probe(host: str, port: int) -> dict:
-    start = time.perf_counter()
-    try:
-        with socket.create_connection((host, port), timeout=TIMEOUT_SECONDS):
-            ms = round((time.perf_counter() - start) * 1000, 2)
-        return {"tcp_reachable": True, "tcp_connect_ms": ms, "error": None}
-    except Exception as exc:
-        return {"tcp_reachable": False, "tcp_connect_ms": None, "error": type(exc).__name__}
+    """Require repeated successful TCP handshakes and report the median latency."""
+    samples = []
+    for _ in range(PROBE_ATTEMPTS):
+        start = time.perf_counter()
+        try:
+            with socket.create_connection((host, port), timeout=TIMEOUT_SECONDS):
+                samples.append(round((time.perf_counter() - start) * 1000, 2))
+        except Exception:
+            pass
+    if len(samples) != PROBE_ATTEMPTS:
+        return {"tcp_reachable": False, "tcp_connect_ms": None, "tcp_samples_ms": samples, "error": "probe_not_stable"}
+    samples_sorted = sorted(samples)
+    median = samples_sorted[len(samples_sorted) // 2]
+    jitter = max(samples) - min(samples)
+    passed = max(samples) <= MAX_ACCEPTABLE_TCP_MS and jitter <= MAX_TCP_JITTER_MS
+    return {
+        "tcp_reachable": passed,
+        "tcp_connect_ms": median,
+        "tcp_samples_ms": samples,
+        "tcp_max_ms": max(samples),
+        "tcp_jitter_ms": round(jitter, 2),
+        "error": None if passed else "latency_or_jitter_threshold",
+    }
 
 def main() -> None:
     CONFIG_DIR.mkdir(exist_ok=True)
@@ -188,7 +242,7 @@ def main() -> None:
     )[:MAX_TESTS]
     for config, meta in candidates:
         ep = endpoint(config)
-        if not ep:
+        if not ep or not is_valid_config(config):
             tested.append({"config": config, **meta, "tcp_reachable": False, "tcp_connect_ms": None, "error": "unsupported_or_unparseable_endpoint"})
             continue
         host, port = ep
@@ -212,7 +266,7 @@ def main() -> None:
     report = {
         "generated_at_utc": stamp,
         "test_environment": "GitHub-hosted Ubuntu runner",
-        "method": "TCP connect latency to the proxy endpoint; this is not a VPN tunnel or ISP-specific test",
+        "method": f"Strict TCP screening: {PROBE_ATTEMPTS}/{PROBE_ATTEMPTS} successful handshakes, max sample <= {MAX_ACCEPTABLE_TCP_MS} ms and jitter <= {MAX_TCP_JITTER_MS} ms; not a VPN tunnel or ISP-specific test",
         "sources": source_status,
         "unique_configs_found": len(unique),
         "endpoints_tested": len(tested),
@@ -230,17 +284,28 @@ def main() -> None:
     }
     (REPORT_DIR / "latest.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (CONFIG_DIR / "fastest-tcp.txt").write_text(
-        "# Fastest TCP-reachable endpoints from GitHub Actions; NOT verified working VPN tunnels.\n"
-        f"# Generated UTC: {stamp}\n" +
-        "".join(x["config"] + "\n" for x in reachable[:10]), encoding="utf-8"
+        "# Top 15 strict TCP-screened candidates from GitHub Actions; NOT verified working VPN tunnels.\n"
+        f"# Generated UTC: {stamp}\n"
+        f"# Requires {PROBE_ATTEMPTS}/{PROBE_ATTEMPTS} successful TCP handshakes, max <= {MAX_ACCEPTABLE_TCP_MS} ms, jitter <= {MAX_TCP_JITTER_MS} ms.\n" +
+        "".join(x["config"] + "\n" for x in reachable[:OUTPUT_LIMIT]), encoding="utf-8"
     )
-    for filename, label in (("hamrah-aval.txt", "Hamrah Aval"), ("irancell.txt", "Irancell"), ("mokhaberat.txt", "Mokhaberat")):
-        (CONFIG_DIR / filename).write_text(
-            f"# {label}: no operator-specific results published yet.\n"
-            "# A test probe connected through this ISP is required before configs can be listed here.\n",
-            encoding="utf-8"
+    # Provisional lists are partitioned by rank, not tested from the named ISP.
+    operator_files = (
+        ("hamrah-aval.txt", "Hamrah Aval", 0),
+        ("irancell.txt", "Irancell", 1),
+        ("mokhaberat.txt", "Mokhaberat fixed-line", 2),
+    )
+    for filename, label, group_index in operator_files:
+        group = reachable[group_index * PER_OPERATOR_LIMIT:(group_index + 1) * PER_OPERATOR_LIMIT]
+        header = (
+            f"# {label}: provisional candidates ranked from GitHub Actions, NOT tested on this ISP.\n"
+            "# TCP reachability is not proof that the VPN tunnel works.\n"
+            f"# Generated UTC: {stamp}\n"
         )
-    print(f"Finished: {len(unique)} unique configs, {len(reachable)} TCP-reachable endpoints.")
+        (CONFIG_DIR / filename).write_text(
+            header + "".join(x["config"] + "\n" for x in group), encoding="utf-8"
+        )
+    print(f"Finished: {len(unique)} unique configs, {len(reachable)} strict TCP-screened endpoints.")
     if not sources:
         print("WARN: no sources configured.")
 
