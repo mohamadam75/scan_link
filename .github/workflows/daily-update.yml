@@ -1,6 +1,11 @@
 name: Daily VPN source monitor
 
 on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "configs/**"
+      - "reports/**"
   schedule:
     # 07:00 Iran time (UTC+03:30) = 03:30 UTC
     - cron: "30 3 * * *"
