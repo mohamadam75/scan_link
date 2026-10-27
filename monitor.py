@@ -216,7 +216,8 @@ def main() -> None:
         "sources": source_status,
         "unique_configs_found": len(unique),
         "endpoints_tested": len(tested),
-        "tcp_reachable_count": len(reachable),
+        "tcp_reachable_count": len(reachable_candidates),
+        "unique_reachable_endpoints": len(reachable),
         "fastest_tcp_endpoints": [
             {k: x.get(k) for k in ("config", "source", "host", "port", "tcp_connect_ms")}
             for x in reachable[:10]
