@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-27T23:18:07+00:00",
+  "generated_at_utc": "2026-10-27T23:30:04+00:00",
   "test_environment": "GitHub-hosted Ubuntu runner",
   "method": "TCP connect latency to the proxy endpoint; this is not a VPN tunnel or ISP-specific test",
   "sources": [
@@ -31,77 +31,78 @@
   ],
   "unique_configs_found": 7230,
   "endpoints_tested": 500,
-  "tcp_reachable_count": 494,
+  "tcp_reachable_count": 470,
+  "unique_reachable_endpoints": 385,
   "fastest_tcp_endpoints": [
     {
-      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@156.146.38.167:443#🇺🇸",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
-      "host": "156.146.38.167",
+      "config": "trojan://mitivpn@199.232.78.160:443?pcs=cd6e838b9bfe31cab8b3d5c858b0d6223fe84ece236c1fdb281be93c302e1e6e&path=/---@&security=tls&alpn=http/1.1&insecure=0&host=mitivpn-mitivpn.ac.ir&fp=chrome&type=ws&allowInsecure=0&sni=community.fastly.steamstatic.com#@V2ray_confiig",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "199.232.78.160",
       "port": 443,
-      "tcp_connect_ms": 26.18
+      "tcp_connect_ms": 1.39
     },
     {
-      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@156.146.38.168:443#hamedp71%3A%3A%F0%9F%87%BA%F0%9F%87%B8",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
-      "host": "156.146.38.168",
-      "port": 443,
-      "tcp_connect_ms": 26.29
+      "config": "vless://1a3d1956-d4a5-4bd1-b759-e0a955ff56e1@199.232.78.159:80?path=ws/?ed=2048/@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1/?2048&security=none&encryption=none&host=rb24.ir&type=ws#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_80.txt",
+      "host": "199.232.78.159",
+      "port": 80,
+      "tcp_connect_ms": 1.45
     },
     {
-      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@156.146.38.168:443#EPODONIOS",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
-      "host": "156.146.38.168",
+      "config": "trojan://mitivpn@167.82.64.46:443?pcs=cd6e838b9bfe31cab8b3d5c858b0d6223fe84ece236c1fdb281be93c302e1e6e&path=/?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&security=tls&alpn=http/1.1&insecure=0&host=mitivpn--s2.global.ssl.fastly.net&fp=chrome&type=ws&allowInsecure=0&sni=firefox.com#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "167.82.64.46",
       "port": 443,
-      "tcp_connect_ms": 26.45
+      "tcp_connect_ms": 1.47
     },
     {
-      "config": "ss://YWVzLTEyOC1jZmI6c2hhZG93c29ja3M=@156.146.38.163:443#%F0%9F%87%BA%F0%9F%87%B8US-156.146.38.163-5936",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
-      "host": "156.146.38.163",
+      "config": "trojan://MITIVpN@151.101.56.90:443?path=/---@Tarkshodeh---@Tarkshodeh/---@Tarkshodeh---@Tarkshodeh/---@Tarkshodeh---@Tarkshodeh/NLSus---@Tarkshodeh---@Tarkshodeh/---@Tarkshodeh---@Tarkshodeh/---@Tarkshodeh---@Tarkshodeh&security=tls&alpn=http/1.1&insecure=0&host=mitivpn---ss--s---mitivpn-66e.global.ssl.fastly.net&fp=chrome&type=ws&allowInsecure=0&sni=ssl.fastly.com#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "151.101.56.90",
       "port": 443,
-      "tcp_connect_ms": 26.63
+      "tcp_connect_ms": 1.55
     },
     {
-      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@156.146.38.170:443#%F0%9F%87%BA%F0%9F%87%B8US-156.146.38.170-0106",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
-      "host": "156.146.38.170",
+      "config": "trojan://MItIVPN@199.232.78.101:443?security=tls&alpn=http/1.1&insecure=0&host=mitivpn---ss--s---mitivpn-11e.global.ssl.fastly.net&fp=chrome&type=ws&allowInsecure=0&sni=ssl.fastly.com#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "199.232.78.101",
       "port": 443,
-      "tcp_connect_ms": 27.37
+      "tcp_connect_ms": 1.66
     },
     {
-      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M@156.146.38.170:443#US",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
-      "host": "156.146.38.170",
+      "config": "trojan://MITIVpN@167.82.76.7:443?path=/---@Tarkshodeh---@Tarkshodeh/---@Tarkshodeh---@Tarkshodeh/---@Tarkshodeh---@Tarkshodeh/NLSus---@Tarkshodeh---@Tarkshodeh/---@Tarkshodeh---@Tarkshodeh/---@Tarkshodeh---@Tarkshodeh&security=tls&alpn=http/1.1&insecure=0&host=mitivpn---ss--s---mitivpn-33e.global.ssl.fastly.net&fp=chrome&type=ws&allowInsecure=0&sni=ssl.fastly.com#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "167.82.76.7",
       "port": 443,
-      "tcp_connect_ms": 27.5
+      "tcp_connect_ms": 1.7
     },
     {
-      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@156.146.38.169:443#@Tarkshodeh",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
-      "host": "156.146.38.169",
-      "port": 443,
-      "tcp_connect_ms": 27.79
+      "config": "vless://d8b3f1c4-94c7-423e-a03a-bfa7f6af0ea1@151.101.56.9:80?encryption=none&type=ws&host=freekabotar.global.ssl.fastly.net&path=/ws&security=none#%F0%9F%87%BA%F0%9F%87%B8%20US%20%7C%20VLESS%20%7C%20%40ehsawn8%20%231%20%5Bfast%5D",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_80.txt",
+      "host": "151.101.56.9",
+      "port": 80,
+      "tcp_connect_ms": 2.19
     },
     {
-      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@156.146.38.170:443#%F0%9F%8F%B3%EF%B8%8F%20ShatakVPN%20525765",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
-      "host": "156.146.38.170",
+      "config": "trojan://MiTiVPN@151.101.56.7:443?path=@TEHRANARGO&security=tls&alpn=http/1.1&insecure=0&host=mitivpn-mitivpn-mitivpn--mitivpn-mitivpn--mitivpn.global.ssl.fastly.net&fp=chrome&type=ws&allowInsecure=0&sni=ssl.fastly.com#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "151.101.56.7",
       "port": 443,
-      "tcp_connect_ms": 28.42
+      "tcp_connect_ms": 2.61
     },
     {
-      "config": "ss://YWVzLTI1Ni1nY206S2l4THZLendqZWtHMDBybQ==@167.88.62.62:8080#%F0%9F%87%BA%F0%9F%87%B8US-167.88.62.62-5985",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
-      "host": "167.88.62.62",
-      "port": 8080,
-      "tcp_connect_ms": 32.82
+      "config": "trojan://MiTiVPN@151.101.56.9:443?security=tls&alpn=http/1.1&insecure=0&host=mitivpn---gb--s---mitivpn-1.global.ssl.fastly.net&fp=chrome&type=ws&allowInsecure=0&sni=ssl.fastly.com#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "151.101.56.9",
+      "port": 443,
+      "tcp_connect_ms": 2.68
     },
     {
-      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@173.244.56.9:443#hamedp71%3A%3A%F0%9F%87%BA%F0%9F%87%B8",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
-      "host": "173.244.56.9",
-      "port": 443,
-      "tcp_connect_ms": 44.77
+      "config": "vless://02d87d00-c769-48d8-91cb-bd05e2f62790@151.101.25.242:80?mode=auto&path=/&security=none&encryption=none&host=jetfr228.global.ssl.fastly.net&type=xhttp#%F0%9F%87%BA%F0%9F%87%B8%20US%20%7C%20VLESS%20%7C%20%40free4allvpn%20%231%20%5Bfast%5D",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_80.txt",
+      "host": "151.101.25.242",
+      "port": 80,
+      "tcp_connect_ms": 3.29
     }
   ],
   "operator_status": {
