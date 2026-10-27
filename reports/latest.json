@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-10-27T23:34:14+00:00",
+  "generated_at_utc": "2026-10-27T23:52:34+00:00",
   "test_environment": "GitHub-hosted Ubuntu runner",
-  "method": "TCP connect latency to the proxy endpoint; this is not a VPN tunnel or ISP-specific test",
+  "method": "Strict TCP screening: 3/3 successful handshakes, max sample <= 1200 ms and jitter <= 500 ms; not a VPN tunnel or ISP-specific test",
   "sources": [
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs",
       "ok": true,
-      "configs_found": 6775
+      "configs_found": 5324
     },
     {
       "source": "https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash",
@@ -16,7 +16,7 @@
     {
       "source": "https://github.com/F0rc3Run/F0rc3Run",
       "ok": true,
-      "configs_found": 1773
+      "configs_found": 1571
     },
     {
       "source": "https://github.com/nodesradar/nodesradar-en",
@@ -26,83 +26,223 @@
     {
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
       "ok": true,
-      "configs_found": 753
+      "configs_found": 684
     }
   ],
-  "unique_configs_found": 7580,
+  "unique_configs_found": 6383,
   "endpoints_tested": 500,
-  "tcp_reachable_count": 472,
-  "unique_reachable_endpoints": 381,
+  "tcp_reachable_count": 465,
+  "unique_reachable_endpoints": 366,
   "fastest_tcp_endpoints": [
     {
-      "config": "trojan://mitivpn@199.232.78.160:443?pcs=cd6e838b9bfe31cab8b3d5c858b0d6223fe84ece236c1fdb281be93c302e1e6e&path=/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSus---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN&security=tls&alpn=http/1.1&insecure=0&host=mitivpn-mitivpn.ac.ir&fp=chrome&type=ws&allowInsecure=0&sni=community.fastly.steamstatic.com#11146@proxy_online_net",
+      "config": "trojan://mitivpn@199.232.78.160:443?pcs=cd6e838b9bfe31cab8b3d5c858b0d6223fe84ece236c1fdb281be93c302e1e6e&path=/?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&security=tls&alpn=http/1.1&insecure=0&host=mitivpn--s2.global.ssl.fastly.net&fp=chrome&type=ws&allowInsecure=0&sni=google.com#@v2ray313",
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
       "host": "199.232.78.160",
       "port": 443,
-      "tcp_connect_ms": 1.54
-    },
-    {
-      "config": "trojan://mitivpn@167.82.64.46:443?fp=chrome&security=tls&type=ws&sni=firefox.com&host=mitivpn-mitivpn.ac.ir&insecure=0&alpn=http/1.1&pcs=cd6e838b9bfe31cab8b3d5c858b0d6223fe84ece236c1fdb281be93c302e1e6e&allowInsecure=0#EPODONIOS",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "167.82.64.46",
-      "port": 443,
-      "tcp_connect_ms": 1.77
-    },
-    {
-      "config": "vless://d8b3f1c4-94c7-423e-a03a-bfa7f6af0ea1@151.101.56.9:80?encryption=none&type=ws&host=freekabotar.global.ssl.fastly.net&path=/ws&security=none#%F0%9F%87%BA%F0%9F%87%B8%20US%20%7C%20VLESS%20%7C%20%40ehsawn8%20%231%20%5Bfast%5D",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_80.txt",
-      "host": "151.101.56.9",
-      "port": 80,
-      "tcp_connect_ms": 1.78
+      "tcp_connect_ms": 0.92,
+      "tcp_samples_ms": [
+        0.92,
+        1.27,
+        0.92
+      ],
+      "tcp_max_ms": 1.27,
+      "tcp_jitter_ms": 0.35
     },
     {
       "config": "trojan://MITIVpN@167.82.76.7:443?security=tls&alpn=http/1.1&insecure=0&host=mitivpn---ss--s---mitivpn-33e.global.ssl.fastly.net&fp=chrome&type=ws&allowInsecure=0&sni=ssl.fastly.com#✨",
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
       "host": "167.82.76.7",
       "port": 443,
-      "tcp_connect_ms": 1.79
+      "tcp_connect_ms": 0.94,
+      "tcp_samples_ms": [
+        1.12,
+        0.6,
+        0.94
+      ],
+      "tcp_max_ms": 1.12,
+      "tcp_jitter_ms": 0.52
     },
     {
-      "config": "trojan://MITIVpN@151.101.56.7:443?security=tls&alpn=http/1.1&insecure=0&host=mitivpn---ss--s---mitivpn-22e.global.ssl.fastly.net&fp=chrome&type=ws&allowInsecure=0&sni=ssl.fastly.com#EPODONIOS",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "151.101.56.7",
-      "port": 443,
-      "tcp_connect_ms": 1.81
-    },
-    {
-      "config": "vless://02d87d00-c769-48d8-91cb-bd05e2f62790@151.101.25.242:80?mode=auto&path=/&security=none&encryption=none&host=jetfr228.global.ssl.fastly.net&type=xhttp#%F0%9F%87%BA%F0%9F%87%B8%20US%20%7C%20VLESS%20%7C%20%40free4allvpn%20%231%20%5Bfast%5D",
+      "config": "vless://d8b3f1c4-94c7-423e-a03a-bfa7f6af0ea1@151.101.56.9:80?encryption=none&type=ws&host=freekabotar.global.ssl.fastly.net&path=/ws&security=none#%F0%9F%87%BA%F0%9F%87%B8%20US%20%7C%20VLESS%20%7C%20%40ehsawn8%20%231%20%5Bfast%5D",
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_80.txt",
-      "host": "151.101.25.242",
+      "host": "151.101.56.9",
       "port": 80,
-      "tcp_connect_ms": 1.86
+      "tcp_connect_ms": 1.07,
+      "tcp_samples_ms": [
+        1.07,
+        0.88,
+        1.44
+      ],
+      "tcp_max_ms": 1.44,
+      "tcp_jitter_ms": 0.56
+    },
+    {
+      "config": "trojan://MiTiVPN@151.101.56.230:443?security=tls&sni=ssl.fastly.com&alpn=http/1.1&fp=chrome&allowinsecure=0&type=ws&host=MiTiVPN-MiTiVPN-MiTiVPN---MiTiVPN--MiTiVPN.global.ssl.fastly.net&path=/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/D-e2@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "151.101.56.230",
+      "port": 443,
+      "tcp_connect_ms": 1.12,
+      "tcp_samples_ms": [
+        1.24,
+        1.07,
+        1.12
+      ],
+      "tcp_max_ms": 1.24,
+      "tcp_jitter_ms": 0.17
+    },
+    {
+      "config": "trojan://MITIVpN@151.101.56.90:443?path=/---@Tarkshodeh---@Tarkshodeh/---@Tarkshodeh---@Tarkshodeh/---@Tarkshodeh---@Tarkshodeh/NLSus---@Tarkshodeh---@Tarkshodeh/---@Tarkshodeh---@Tarkshodeh/---@Tarkshodeh---@Tarkshodeh&security=tls&alpn=http/1.1&insecure=0&host=mitivpn---ss--s---mitivpn-66e.global.ssl.fastly.net&fp=chrome&type=ws&allowInsecure=0&sni=ssl.fastly.com#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "151.101.56.90",
+      "port": 443,
+      "tcp_connect_ms": 1.15,
+      "tcp_samples_ms": [
+        1.15,
+        1.4,
+        0.81
+      ],
+      "tcp_max_ms": 1.4,
+      "tcp_jitter_ms": 0.59
     },
     {
       "config": "trojan://MiTiVPN@151.101.56.9:443?security=tls&alpn=http/1.1&insecure=0&host=mitivpn---gb--s---mitivpn-1.global.ssl.fastly.net&fp=chrome&type=ws&allowInsecure=0&sni=ssl.fastly.com#EPODONIOS",
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
       "host": "151.101.56.9",
       "port": 443,
-      "tcp_connect_ms": 1.89
+      "tcp_connect_ms": 1.17,
+      "tcp_samples_ms": [
+        1.04,
+        1.17,
+        1.26
+      ],
+      "tcp_max_ms": 1.26,
+      "tcp_jitter_ms": 0.22
     },
     {
-      "config": "trojan://MItIVPN@199.232.78.101:443?security=tls&alpn=http/1.1&insecure=0&host=mitivpn---ss--s---mitivpn-11e.global.ssl.fastly.net&fp=chrome&type=ws&allowInsecure=0&sni=ssl.fastly.com#EPODONIOS",
+      "config": "trojan://mitivpn@167.82.64.46:443?pcs=cd6e838b9bfe31cab8b3d5c858b0d6223fe84ece236c1fdb281be93c302e1e6e&security=tls&alpn=http/1.1&insecure=0&host=mitivpn-mitivpn.ac.ir&fp=chrome&type=ws&allowInsecure=0&sni=firefox.com#🇩🇪@FreakConfig",
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "199.232.78.101",
+      "host": "167.82.64.46",
       "port": 443,
-      "tcp_connect_ms": 1.98
+      "tcp_connect_ms": 1.18,
+      "tcp_samples_ms": [
+        1.18,
+        1.27,
+        1.06
+      ],
+      "tcp_max_ms": 1.27,
+      "tcp_jitter_ms": 0.21
     },
     {
-      "config": "trojan://2223970e6a0b8ad289d3c43dd85dd2c9@167.82.101.159:443?mode=auto&security=tls&alpn=h2&extra={",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "167.82.101.159",
-      "port": 443,
-      "tcp_connect_ms": 2.0
-    },
-    {
-      "config": "vless://f47c506e-9b4a-41ce-a07c-ef084c16468c@199.232.78.159:80?mode=auto&path=/xhttp&security=none&encryption=none&extra={",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_80.txt",
+      "config": "vless://1a3d1956-d4a5-4bd1-b759-e0a955ff56e1@199.232.78.159:80?path=ws/?ed=2048/@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1@VPNine1/?2048&security=none&encryption=none&host=rb24.ir&type=ws#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-547%20%F0%9F%87%A9%F0%9F%87%AA",
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
       "host": "199.232.78.159",
       "port": 80,
-      "tcp_connect_ms": 2.03
+      "tcp_connect_ms": 1.2,
+      "tcp_samples_ms": [
+        1.05,
+        1.2,
+        3.53
+      ],
+      "tcp_max_ms": 3.53,
+      "tcp_jitter_ms": 2.48
+    },
+    {
+      "config": "vless://02d87d00-c769-48d8-91cb-bd05e2f62790@151.101.25.242:80?mode=auto&path=/&security=none&encryption=none&host=jetfr228.global.ssl.fastly.net&type=xhttp#%F0%9F%87%BA%F0%9F%87%B8%20US%20%7C%20VLESS%20%7C%20%40free4allvpn%20%231%20%5Bfast%5D",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_80.txt",
+      "host": "151.101.25.242",
+      "port": 80,
+      "tcp_connect_ms": 1.21,
+      "tcp_samples_ms": [
+        0.8,
+        1.49,
+        1.21
+      ],
+      "tcp_max_ms": 1.49,
+      "tcp_jitter_ms": 0.69
+    },
+    {
+      "config": "trojan://MITIVpN@151.101.56.7:443?security=tls&alpn=http/1.1&insecure=0&host=mitivpn---ss--s---mitivpn-22e.global.ssl.fastly.net&fp=chrome&type=ws&allowInsecure=0&sni=ssl.fastly.com#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "151.101.56.7",
+      "port": 443,
+      "tcp_connect_ms": 1.4,
+      "tcp_samples_ms": [
+        1.0,
+        1.41,
+        1.4
+      ],
+      "tcp_max_ms": 1.41,
+      "tcp_jitter_ms": 0.41
+    },
+    {
+      "config": "trojan://humanity@104.18.35.86:443?path=/assignment&security=tls&alpn=http/1.1&insecure=0&host=www.volumerOot.coM.&type=ws&allowInsecure=0&sni=www.volumerOot.coM.#YFZ",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "104.18.35.86",
+      "port": 443,
+      "tcp_connect_ms": 1.41,
+      "tcp_samples_ms": [
+        1.74,
+        1.4,
+        1.41
+      ],
+      "tcp_max_ms": 1.74,
+      "tcp_jitter_ms": 0.34
+    },
+    {
+      "config": "trojan://humanity@104.18.152.244:443?security=tls&sni=www.ignitelimit.com&type=ws&path=/assignment&Host=www.ignitelimit.com#%F0%9F%8F%81RELAY-104.18.152.244-0885",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "104.18.152.244",
+      "port": 443,
+      "tcp_connect_ms": 1.44,
+      "tcp_samples_ms": [
+        1.95,
+        1.42,
+        1.44
+      ],
+      "tcp_max_ms": 1.95,
+      "tcp_jitter_ms": 0.53
+    },
+    {
+      "config": "vless://bdc5e450-3e2d-4001-928e-e3bc6cecb249@172.67.130.159:2096?path=/hux9duzm54&security=tls&encryption=none&insecure=0&host=cdn.skyvora.app&fp=chrome&type=ws&allowInsecure=0&sni=cdn.skyvora.app#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_2096.txt",
+      "host": "172.67.130.159",
+      "port": 2096,
+      "tcp_connect_ms": 1.45,
+      "tcp_samples_ms": [
+        1.65,
+        1.45,
+        1.45
+      ],
+      "tcp_max_ms": 1.65,
+      "tcp_jitter_ms": 0.2
+    },
+    {
+      "config": "vless://47fcef29-ab4e-4aa6-932b-d95a18f28a4e@108.162.198.178:80?eh=Sec-WebSocket-Protocol&encryption=none&host=8nj2r.2k8t.f88.hh.vavava.kdns.fr&path=%2F&security=none&type=ws#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_80.txt",
+      "host": "108.162.198.178",
+      "port": 80,
+      "tcp_connect_ms": 1.46,
+      "tcp_samples_ms": [
+        12.0,
+        1.44,
+        1.46
+      ],
+      "tcp_max_ms": 12.0,
+      "tcp_jitter_ms": 10.56
+    },
+    {
+      "config": "vless://a8cd1696-ac65-495d-8529-6688d0789ce2@172.64.152.23:2082?type=ws&encryption=none&path=/@cephalon_ala-@cephalon_ala-@cephalon_ala-@cephalon_ala-@cephalon_ala-@cephalon_ala-@cephalon_ala-@cephalon_ala-@cephalon_ala-@cephalon_ala?ed=1024&host=war.does.not.determine.who.is.right_only.who.is.left.2.0.2.6.cEphAlon.BeauTy&security=none#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_2082.txt",
+      "host": "172.64.152.23",
+      "port": 2082,
+      "tcp_connect_ms": 1.47,
+      "tcp_samples_ms": [
+        1.47,
+        1.4,
+        2.16
+      ],
+      "tcp_max_ms": 2.16,
+      "tcp_jitter_ms": 0.76
     }
   ],
   "operator_status": {
