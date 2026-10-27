@@ -195,10 +195,19 @@ def main() -> None:
         result = tcp_probe(host, port)
         tested.append({"config": config, **meta, "host": host, "port": port, **result})
 
-    reachable = sorted(
+    reachable_candidates = sorted(
         (x for x in tested if x.get("tcp_reachable") and x.get("tcp_connect_ms") is not None),
         key=lambda x: x["tcp_connect_ms"]
     )
+    # Keep only the fastest config for each host:port so duplicate aliases do not
+    # occupy the entire public top-10 list.
+    reachable, seen_endpoints = [], set()
+    for item in reachable_candidates:
+        endpoint_key = (item.get("host"), item.get("port"))
+        if endpoint_key in seen_endpoints:
+            continue
+        seen_endpoints.add(endpoint_key)
+        reachable.append(item)
     stamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
     report = {
         "generated_at_utc": stamp,
