@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import base64
 import json
+import hashlib
 import os
 import re
 import socket
@@ -179,7 +180,13 @@ def main() -> None:
             print(f"WARN source failed {url}: {type(exc).__name__}")
 
     tested = []
-    for config, meta in list(unique.items())[:MAX_TESTS]:
+    # Stable hash-based sampling avoids always testing only the first source's configs.
+    # The sample is reproducible for a given set of input configs, but spans the full pool.
+    candidates = sorted(
+        unique.items(),
+        key=lambda item: hashlib.sha256(item[0].encode("utf-8")).digest(),
+    )[:MAX_TESTS]
+    for config, meta in candidates:
         ep = endpoint(config)
         if not ep:
             tested.append({"config": config, **meta, "tcp_reachable": False, "tcp_connect_ms": None, "error": "unsupported_or_unparseable_endpoint"})
