@@ -41,6 +41,17 @@ class ConfigParsingTests(unittest.TestCase):
     def test_rejects_unparseable_endpoint(self):
         self.assertIsNone(monitor.endpoint("vless://not-a-valid-authority"))
 
+    def test_rejects_truncated_uri(self):
+        malformed = "vless://f47c506e-9b4a-41ce-a07c-ef084c16468c@example.com:443?security=tls&extra={"
+        self.assertFalse(monitor.is_valid_config(malformed))
+        self.assertEqual(monitor.extract_configs(malformed), [])
+
+    def test_validates_vmess_required_fields(self):
+        payload = base64.urlsafe_b64encode(
+            json.dumps({"add": "vmess.example", "port": "8443", "id": "uuid"}).encode()
+        ).decode().rstrip("=")
+        self.assertTrue(monitor.is_valid_config(f"vmess://{payload}"))
+
 
 if __name__ == "__main__":
     unittest.main()
