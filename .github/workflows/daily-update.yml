@@ -2,8 +2,8 @@ name: Daily VPN source monitor
 
 on:
   schedule:
-    # 06:00 Iran time (UTC+03:30)
-    - cron: "30 2 * * *"
+    # 07:00 Iran time (UTC+03:30) = 03:30 UTC
+    - cron: "30 3 * * *"
   workflow_dispatch:
 
 permissions:
@@ -27,8 +27,6 @@ jobs:
           python-version: "3.12"
 
       - name: Collect sources and test TCP reachability
-        env:
-          SUBSCRIPTION_URL: ${{ secrets.SUBSCRIPTION_URL }}
         run: python monitor.py
 
       - name: Commit report
