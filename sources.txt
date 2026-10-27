@@ -1,0 +1,7 @@
+# One source URL per line.
+# Subscription URLs containing personal tokens should be stored as the
+# SUBSCRIPTION_URL GitHub Actions secret instead of being committed here.
+https://github.com/hamedcode/port-based-v2ray-configs
+https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash
+https://github.com/F0rc3Run/F0rc3Run
+https://github.com/nodesradar/nodesradar-en
