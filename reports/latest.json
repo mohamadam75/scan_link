@@ -1,0 +1,121 @@
+{
+  "generated_at_utc": "2026-10-27T23:18:07+00:00",
+  "test_environment": "GitHub-hosted Ubuntu runner",
+  "method": "TCP connect latency to the proxy endpoint; this is not a VPN tunnel or ISP-specific test",
+  "sources": [
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs",
+      "ok": true,
+      "configs_found": 6419
+    },
+    {
+      "source": "https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash",
+      "ok": true,
+      "configs_found": 0
+    },
+    {
+      "source": "https://github.com/F0rc3Run/F0rc3Run",
+      "ok": true,
+      "configs_found": 1773
+    },
+    {
+      "source": "https://github.com/nodesradar/nodesradar-en",
+      "ok": true,
+      "configs_found": 30
+    },
+    {
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "ok": true,
+      "configs_found": 753
+    }
+  ],
+  "unique_configs_found": 7230,
+  "endpoints_tested": 500,
+  "tcp_reachable_count": 494,
+  "fastest_tcp_endpoints": [
+    {
+      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@156.146.38.167:443#🇺🇸",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
+      "host": "156.146.38.167",
+      "port": 443,
+      "tcp_connect_ms": 26.18
+    },
+    {
+      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@156.146.38.168:443#hamedp71%3A%3A%F0%9F%87%BA%F0%9F%87%B8",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
+      "host": "156.146.38.168",
+      "port": 443,
+      "tcp_connect_ms": 26.29
+    },
+    {
+      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@156.146.38.168:443#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
+      "host": "156.146.38.168",
+      "port": 443,
+      "tcp_connect_ms": 26.45
+    },
+    {
+      "config": "ss://YWVzLTEyOC1jZmI6c2hhZG93c29ja3M=@156.146.38.163:443#%F0%9F%87%BA%F0%9F%87%B8US-156.146.38.163-5936",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
+      "host": "156.146.38.163",
+      "port": 443,
+      "tcp_connect_ms": 26.63
+    },
+    {
+      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@156.146.38.170:443#%F0%9F%87%BA%F0%9F%87%B8US-156.146.38.170-0106",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
+      "host": "156.146.38.170",
+      "port": 443,
+      "tcp_connect_ms": 27.37
+    },
+    {
+      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M@156.146.38.170:443#US",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
+      "host": "156.146.38.170",
+      "port": 443,
+      "tcp_connect_ms": 27.5
+    },
+    {
+      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@156.146.38.169:443#@Tarkshodeh",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
+      "host": "156.146.38.169",
+      "port": 443,
+      "tcp_connect_ms": 27.79
+    },
+    {
+      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@156.146.38.170:443#%F0%9F%8F%B3%EF%B8%8F%20ShatakVPN%20525765",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
+      "host": "156.146.38.170",
+      "port": 443,
+      "tcp_connect_ms": 28.42
+    },
+    {
+      "config": "ss://YWVzLTI1Ni1nY206S2l4THZLendqZWtHMDBybQ==@167.88.62.62:8080#%F0%9F%87%BA%F0%9F%87%B8US-167.88.62.62-5985",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
+      "host": "167.88.62.62",
+      "port": 8080,
+      "tcp_connect_ms": 32.82
+    },
+    {
+      "config": "ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@173.244.56.9:443#hamedp71%3A%3A%F0%9F%87%BA%F0%9F%87%B8",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/ss.txt",
+      "host": "173.244.56.9",
+      "port": 443,
+      "tcp_connect_ms": 44.77
+    }
+  ],
+  "operator_status": {
+    "hamrah_aval": {
+      "verified": false,
+      "reason": "No test probe on the Hamrah Aval network is configured."
+    },
+    "irancell": {
+      "verified": false,
+      "reason": "No test probe on the Irancell network is configured."
+    },
+    "mokhaberat": {
+      "verified": false,
+      "reason": "No test probe on the fixed-line network is configured."
+    }
+  }
+}
