@@ -71,7 +71,9 @@ def github_repo_files(url: str) -> list[tuple[str, str]]:
     if len(parts) < 2:
         return []
     owner, repo = parts[0], parts[1].removesuffix(".git")
-    api = f"https://api.github.com/repos/{owner}/{repo}/git/trees/HEAD?recursive=1"
+    repo_meta = json.loads(fetch(f"https://api.github.com/repos/{owner}/{repo}", 500_000).decode("utf-8"))
+    branch = repo_meta.get("default_branch", "main")
+    api = f"https://api.github.com/repos/{owner}/{repo}/git/trees/{urllib.parse.quote(branch, safe='/')}?recursive=1"
     payload = json.loads(fetch(api, 5_000_000).decode("utf-8"))
     allowed = (".txt", ".yaml", ".yml", ".json", ".conf", ".list", ".ini", ".md", ".log", ".sub")
     selected = []
@@ -81,7 +83,7 @@ def github_repo_files(url: str) -> list[tuple[str, str]]:
             continue
         if any(part in path.lower() for part in (".github/", "node_modules/", "vendor/", "docs/")):
             continue
-        selected.append((path, f"https://raw.githubusercontent.com/{owner}/{repo}/HEAD/{urllib.parse.quote(path, safe='/')}"))
+        selected.append((path, f"https://raw.githubusercontent.com/{owner}/{repo}/{urllib.parse.quote(branch, safe='/')}/{urllib.parse.quote(path, safe='/')}"))
     selected.sort(key=lambda x: (not any(k in x[0].lower() for k in ("config", "proxy", "vpn", "node", "sub", "all")), len(x[0])))
     return selected[:MAX_FILES_PER_REPO]
 
