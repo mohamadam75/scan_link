@@ -161,7 +161,7 @@ def endpoint(config: str) -> tuple[str, int] | None:
 
 def is_valid_config(config: str) -> bool:
     """Conservative syntax/endpoint validation; this does not prove tunnel functionality."""
-    if any(ch in config for ch in ("\\n", "\\r", "<", ">")):
+    if any(ch in config for ch in ("\n", "\r", "<", ">")):
         return False
     if config.endswith(("{", "[", "=", "&", "?")) or "&extra={" in config:
         return False
@@ -273,8 +273,8 @@ def main() -> None:
         "tcp_reachable_count": len(reachable_candidates),
         "unique_reachable_endpoints": len(reachable),
         "fastest_tcp_endpoints": [
-            {k: x.get(k) for k in ("config", "source", "host", "port", "tcp_connect_ms")}
-            for x in reachable[:10]
+            {k: x.get(k) for k in ("config", "source", "host", "port", "tcp_connect_ms", "tcp_samples_ms", "tcp_max_ms", "tcp_jitter_ms")}
+            for x in reachable[:OUTPUT_LIMIT]
         ],
         "operator_status": {
             "hamrah_aval": {"verified": False, "reason": "No test probe on the Hamrah Aval network is configured."},
