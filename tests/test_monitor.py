@@ -46,6 +46,19 @@ class ConfigParsingTests(unittest.TestCase):
         self.assertFalse(monitor.is_valid_config(malformed))
         self.assertEqual(monitor.extract_configs(malformed), [])
 
+    def test_builds_vless_xray_outbound(self):
+        outbound = monitor.xray_outbound("vless://123e4567-e89b-12d3-a456-426614174000@example.com:443?security=tls&type=ws&sni=example.com&path=%2Fvpn")
+        self.assertEqual(outbound["protocol"], "vless")
+        self.assertEqual(outbound["streamSettings"]["network"], "ws")
+
+    def test_builds_trojan_xray_outbound(self):
+        outbound = monitor.xray_outbound("trojan://secret@example.org:443?sni=example.org")
+        self.assertEqual(outbound["protocol"], "trojan")
+        self.assertEqual(outbound["settings"]["servers"][0]["password"], "secret")
+
+    def test_skips_unsupported_scheme(self):
+        self.assertIsNone(monitor.xray_outbound("hy2://secret@example.org:443"))
+
     def test_validates_vmess_required_fields(self):
         payload = base64.urlsafe_b64encode(
             json.dumps({"add": "vmess.example", "port": "8443", "id": "uuid"}).encode()
