@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-28T00:47:15+00:00",
+  "generated_at_utc": "2026-10-28T00:51:56+00:00",
   "test_environment": "GitHub-hosted Ubuntu runner; not an Iranian ISP",
   "method": "Xray tunnel test: start supported outbound, then HTTPS GET to https://www.gstatic.com/generate_204 through local SOCKS5; timeout 7s. Successful tunnel tests only are published.",
   "sources": [
@@ -31,15 +31,15 @@
   ],
   "unique_configs_found": 6383,
   "candidate_configs_tested": 100,
-  "tunnel_success_count": 39,
-  "unique_working_endpoints": 37,
+  "tunnel_success_count": 40,
+  "unique_working_endpoints": 38,
   "tested": [
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_2087.txt",
       "host": "2.26.6.1",
       "port": 2087,
       "tunnel_ok": true,
-      "tunnel_ms": 924.68,
+      "tunnel_ms": 641.77,
       "http_status": "204",
       "error": null
     },
@@ -93,7 +93,7 @@
       "host": "209.200.246.148",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 387.75,
+      "tunnel_ms": 169.83,
       "http_status": "204",
       "error": null
     },
@@ -102,7 +102,7 @@
       "host": "www.gptcloudai.com",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 923.07,
+      "tunnel_ms": 600.77,
       "http_status": "204",
       "error": null
     },
@@ -165,7 +165,7 @@
       "host": "uk1.connectsuite.org",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 1768.85,
+      "tunnel_ms": 1735.94,
       "http_status": "204",
       "error": null
     },
@@ -174,7 +174,7 @@
       "host": "129.146.143.80",
       "port": 48111,
       "tunnel_ok": true,
-      "tunnel_ms": 2415.81,
+      "tunnel_ms": 237.41,
       "http_status": "204",
       "error": null
     },
@@ -183,7 +183,7 @@
       "host": "ggggoods.brand-netprime.com",
       "port": 2087,
       "tunnel_ok": true,
-      "tunnel_ms": 862.1,
+      "tunnel_ms": 560.63,
       "http_status": "204",
       "error": null
     },
@@ -254,10 +254,10 @@
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
       "host": "168.138.43.75",
       "port": 80,
-      "tunnel_ok": false,
-      "tunnel_ms": null,
-      "http_status": null,
-      "error": "https_through_tunnel_failed"
+      "tunnel_ok": true,
+      "tunnel_ms": 725.8,
+      "http_status": "204",
+      "error": null
     },
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_80.txt",
@@ -282,7 +282,7 @@
       "host": "185.220.100.168",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 976.02,
+      "tunnel_ms": 1316.75,
       "http_status": "204",
       "error": null
     },
@@ -291,7 +291,7 @@
       "host": "185.95.231.156",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 327.68,
+      "tunnel_ms": 128.75,
       "http_status": "204",
       "error": null
     },
@@ -309,7 +309,7 @@
       "host": "188.114.97.6",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 726.44,
+      "tunnel_ms": 464.43,
       "http_status": "204",
       "error": null
     },
@@ -327,7 +327,7 @@
       "host": "fi.viralforge.ru",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 873.92,
+      "tunnel_ms": 595.43,
       "http_status": "204",
       "error": null
     },
@@ -345,7 +345,7 @@
       "host": "resources.findlocaljobnetworkandbuildcommunityconnections.com",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 260.33,
+      "tunnel_ms": 393.28,
       "http_status": "204",
       "error": null
     },
@@ -354,7 +354,7 @@
       "host": "47.253.226.114",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 290.36,
+      "tunnel_ms": 92.67,
       "http_status": "204",
       "error": null
     },
@@ -372,7 +372,7 @@
       "host": "mci1.amir12.ir",
       "port": 1222,
       "tunnel_ok": true,
-      "tunnel_ms": 907.5,
+      "tunnel_ms": 535.13,
       "http_status": "204",
       "error": null
     },
@@ -390,7 +390,7 @@
       "host": "163.245.42.48",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 661.43,
+      "tunnel_ms": 432.42,
       "http_status": "204",
       "error": null
     },
@@ -417,7 +417,7 @@
       "host": "169.40.42.90",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 880.06,
+      "tunnel_ms": 3927.86,
       "http_status": "204",
       "error": null
     },
@@ -453,7 +453,7 @@
       "host": "213.152.165.197",
       "port": 2092,
       "tunnel_ok": true,
-      "tunnel_ms": 794.27,
+      "tunnel_ms": 633.16,
       "http_status": "204",
       "error": null
     },
@@ -471,7 +471,7 @@
       "host": "66.163.114.166",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 215.29,
+      "tunnel_ms": 267.76,
       "http_status": "204",
       "error": null
     },
@@ -489,7 +489,7 @@
       "host": "uk.2ul.top",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 732.28,
+      "tunnel_ms": 506.28,
       "http_status": "204",
       "error": null
     },
@@ -534,7 +534,7 @@
       "host": "66.70.179.198",
       "port": 2053,
       "tunnel_ok": true,
-      "tunnel_ms": 387.76,
+      "tunnel_ms": 168.38,
       "http_status": "204",
       "error": null
     },
@@ -552,7 +552,7 @@
       "host": "45.132.75.213",
       "port": 2053,
       "tunnel_ok": true,
-      "tunnel_ms": 1005.33,
+      "tunnel_ms": 3914.81,
       "http_status": "204",
       "error": null
     },
@@ -561,7 +561,7 @@
       "host": "www.speedtest.net",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 762.89,
+      "tunnel_ms": 449.22,
       "http_status": "204",
       "error": null
     },
@@ -579,7 +579,7 @@
       "host": "mci1.amir12.ir",
       "port": 1222,
       "tunnel_ok": true,
-      "tunnel_ms": 894.18,
+      "tunnel_ms": 630.19,
       "http_status": "204",
       "error": null
     },
@@ -588,7 +588,7 @@
       "host": "66.163.114.132",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 225.03,
+      "tunnel_ms": 270.34,
       "http_status": "204",
       "error": null
     },
@@ -633,7 +633,7 @@
       "host": "hw3.divarkhaghazi.com",
       "port": 465,
       "tunnel_ok": true,
-      "tunnel_ms": 972.62,
+      "tunnel_ms": 709.07,
       "http_status": "204",
       "error": null
     },
@@ -642,7 +642,7 @@
       "host": "45.38.3.25",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 736.79,
+      "tunnel_ms": 845.66,
       "http_status": "204",
       "error": null
     },
@@ -660,7 +660,7 @@
       "host": "57.129.132.223",
       "port": 80,
       "tunnel_ok": true,
-      "tunnel_ms": 895.69,
+      "tunnel_ms": 550.55,
       "http_status": "204",
       "error": null
     },
@@ -669,7 +669,7 @@
       "host": "216.152.156.81",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 253.31,
+      "tunnel_ms": 204.47,
       "http_status": "204",
       "error": null
     },
@@ -678,7 +678,7 @@
       "host": "185.95.231.156",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 312.39,
+      "tunnel_ms": 109.58,
       "http_status": "204",
       "error": null
     },
@@ -687,7 +687,7 @@
       "host": "66.163.114.245",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 216.8,
+      "tunnel_ms": 272.52,
       "http_status": "204",
       "error": null
     },
@@ -705,7 +705,7 @@
       "host": "31.76.252.113",
       "port": 51593,
       "tunnel_ok": true,
-      "tunnel_ms": 804.0,
+      "tunnel_ms": 437.03,
       "http_status": "204",
       "error": null
     },
@@ -741,7 +741,7 @@
       "host": "213.152.165.200",
       "port": 2094,
       "tunnel_ok": true,
-      "tunnel_ms": 753.86,
+      "tunnel_ms": 543.23,
       "http_status": "204",
       "error": null
     },
@@ -777,7 +777,7 @@
       "host": "213.152.165.201",
       "port": 2095,
       "tunnel_ok": true,
-      "tunnel_ms": 1015.78,
+      "tunnel_ms": 799.1,
       "http_status": "204",
       "error": null
     },
@@ -804,7 +804,7 @@
       "host": "45.87.41.18",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 864.8,
+      "tunnel_ms": 602.75,
       "http_status": "204",
       "error": null
     },
@@ -822,7 +822,7 @@
       "host": "45.65.112.23",
       "port": 2087,
       "tunnel_ok": true,
-      "tunnel_ms": 754.68,
+      "tunnel_ms": 522.22,
       "http_status": "204",
       "error": null
     },
@@ -831,7 +831,7 @@
       "host": "201.24.121.243",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 1051.55,
+      "tunnel_ms": 794.3,
       "http_status": "204",
       "error": null
     },
@@ -840,7 +840,7 @@
       "host": "blog.findlocaljobnetworkandbuildcommunityconnections.com",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 277.04,
+      "tunnel_ms": 337.49,
       "http_status": "204",
       "error": null
     },
@@ -867,7 +867,7 @@
       "host": "104.18.47.140",
       "port": 2096,
       "tunnel_ok": true,
-      "tunnel_ms": 246.84,
+      "tunnel_ms": 160.32,
       "http_status": "204",
       "error": null
     },
@@ -876,7 +876,7 @@
       "host": "hw3.divarkhaghazi.com.",
       "port": 465,
       "tunnel_ok": true,
-      "tunnel_ms": 913.08,
+      "tunnel_ms": 663.89,
       "http_status": "204",
       "error": null
     },
@@ -921,7 +921,7 @@
       "host": "152.228.139.33",
       "port": 35108,
       "tunnel_ok": true,
-      "tunnel_ms": 840.68,
+      "tunnel_ms": 554.23,
       "http_status": "204",
       "error": null
     },
@@ -937,67 +937,11 @@
   ],
   "fastest_tunnel_configs": [
     {
-      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@66.163.114.166:443?allowInsecure=1&sni=blog.findconnectwithemployersandbuildprofessionalnetwork.com&type=tcp#US",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "66.163.114.166",
-      "port": 443,
-      "tunnel_ms": 215.29,
-      "http_status": "204"
-    },
-    {
-      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@66.163.114.245:443?security=tls&insecure=0&headerType=none&type=tcp&allowInsecure=0&sni=findconnectwithemployersandbuildprofessionalnetwork.com#EPODONIOS",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "66.163.114.245",
-      "port": 443,
-      "tunnel_ms": 216.8,
-      "http_status": "204"
-    },
-    {
-      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@66.163.114.132:443?security=tls&sni=courses.findconnectwithemployersandbuildprofessionalnetwork.com#%F0%9F%87%BA%F0%9F%87%B8US-66.163.114.132-2431",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "66.163.114.132",
-      "port": 443,
-      "tunnel_ms": 225.03,
-      "http_status": "204"
-    },
-    {
-      "config": "vless://341832cc-ba98-425b-8225-b3db621a0da3@104.18.47.140:2096?encryption=none&security=tls&sni=rainfall0705.cc.cd&fp=qq&type=ws&host=rainfall0705.cc.cd&path=%2F#qoli_075",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_2096.txt",
-      "host": "104.18.47.140",
-      "port": 2096,
-      "tunnel_ms": 246.84,
-      "http_status": "204"
-    },
-    {
-      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@216.152.156.81:443?allowInsecure=1&sni=www.healthcarejobshubenhancemedicalprofessionalskillstoday.com#EPODONIOS",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "216.152.156.81",
-      "port": 443,
-      "tunnel_ms": 253.31,
-      "http_status": "204"
-    },
-    {
-      "config": "trojan://f0eb8c92ce8946aaba856569cff1a16b@resources.findlocaljobnetworkandbuildcommunityconnections.com:443?security=tls&insecure=0&headerType=none&type=tcp&allowInsecure=0&sni=resources.findlocaljobnetworkandbuildcommunityconnections.com#US",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "resources.findlocaljobnetworkandbuildcommunityconnections.com",
-      "port": 443,
-      "tunnel_ms": 260.33,
-      "http_status": "204"
-    },
-    {
-      "config": "trojan://dba20dcb635e430fa4d3bfc303a149d2@blog.findlocaljobnetworkandbuildcommunityconnections.com:443?security=tls&insecure=0&headerType=none&type=tcp&allowInsecure=0#US",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "blog.findlocaljobnetworkandbuildcommunityconnections.com",
-      "port": 443,
-      "tunnel_ms": 277.04,
-      "http_status": "204"
-    },
-    {
       "config": "vless://055a1ce8-2a16-4a0d-a2c2-22826c9b2413@47.253.226.114:443?encryption=none&flow=xtls-rprx-vision&pbk=Svl81isn16RPAFnjtmYw7A6TPnsEPLHuYYaJht65Rzc&security=reality&sni=www.cloudflare.com&type=tcp#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-648%20%F0%9F%87%BA%F0%9F%87%B8",
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
       "host": "47.253.226.114",
       "port": 443,
-      "tunnel_ms": 290.36,
+      "tunnel_ms": 92.67,
       "http_status": "204"
     },
     {
@@ -1005,15 +949,15 @@
       "source": "https://github.com/F0rc3Run/F0rc3Run#Best-Results/sub.txt",
       "host": "185.95.231.156",
       "port": 443,
-      "tunnel_ms": 312.39,
+      "tunnel_ms": 109.58,
       "http_status": "204"
     },
     {
-      "config": "vless://ca52e2b6-fb9f-4dac-b6dc-49da9923f251@209.200.246.148:443?security=reality&type=tcp&packetEncoding=xudp&sni=www.cloudflare.com&fp=firefox&flow=xtls-rprx-vision&sid=f98843107912e782&pbk=uTmb-ytXsx8p0fkBz7A76SHpWk7_oVutIA4LGTE8BQk#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-532%20%F0%9F%87%A8%F0%9F%87%A6",
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "209.200.246.148",
-      "port": 443,
-      "tunnel_ms": 387.75,
+      "config": "vless://341832cc-ba98-425b-8225-b3db621a0da3@104.18.47.140:2096?encryption=none&security=tls&sni=rainfall0705.cc.cd&fp=qq&type=ws&host=rainfall0705.cc.cd&path=%2F#qoli_075",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_2096.txt",
+      "host": "104.18.47.140",
+      "port": 2096,
+      "tunnel_ms": 160.32,
       "http_status": "204"
     },
     {
@@ -1021,7 +965,71 @@
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_2053.txt",
       "host": "66.70.179.198",
       "port": 2053,
-      "tunnel_ms": 387.76,
+      "tunnel_ms": 168.38,
+      "http_status": "204"
+    },
+    {
+      "config": "vless://ca52e2b6-fb9f-4dac-b6dc-49da9923f251@209.200.246.148:443?security=reality&type=tcp&packetEncoding=xudp&sni=www.cloudflare.com&fp=firefox&flow=xtls-rprx-vision&sid=f98843107912e782&pbk=uTmb-ytXsx8p0fkBz7A76SHpWk7_oVutIA4LGTE8BQk#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-532%20%F0%9F%87%A8%F0%9F%87%A6",
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "209.200.246.148",
+      "port": 443,
+      "tunnel_ms": 169.83,
+      "http_status": "204"
+    },
+    {
+      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@216.152.156.81:443?allowInsecure=1&sni=www.healthcarejobshubenhancemedicalprofessionalskillstoday.com#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "216.152.156.81",
+      "port": 443,
+      "tunnel_ms": 204.47,
+      "http_status": "204"
+    },
+    {
+      "config": "vmess://eyJ2IjoiMiIsInBzIjoiVVMg8J+HuvCfh7ggfCBAUmF5ZGlrYWx4IHwgMTg4MTFEIiwiYWRkIjoiMTI5LjE0Ni4xNDMuODAiLCJwb3J0IjoiNDgxMTEiLCJpZCI6ImQ0NjAzY2MyLWUwZWUtNDY1MS04M2Y1LTFkYjViNzE2ODE3NyIsImFpZCI6IjAiLCJzY3kiOiJhdXRvIiwibmV0IjoidGNwIiwidHlwZSI6IiIsInRscyI6IiJ9",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
+      "host": "129.146.143.80",
+      "port": 48111,
+      "tunnel_ms": 237.41,
+      "http_status": "204"
+    },
+    {
+      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@66.163.114.166:443?allowInsecure=1&sni=blog.findconnectwithemployersandbuildprofessionalnetwork.com&type=tcp#US",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "66.163.114.166",
+      "port": 443,
+      "tunnel_ms": 267.76,
+      "http_status": "204"
+    },
+    {
+      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@66.163.114.132:443?security=tls&sni=courses.findconnectwithemployersandbuildprofessionalnetwork.com#%F0%9F%87%BA%F0%9F%87%B8US-66.163.114.132-2431",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "66.163.114.132",
+      "port": 443,
+      "tunnel_ms": 270.34,
+      "http_status": "204"
+    },
+    {
+      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@66.163.114.245:443?security=tls&insecure=0&headerType=none&type=tcp&allowInsecure=0&sni=findconnectwithemployersandbuildprofessionalnetwork.com#EPODONIOS",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "66.163.114.245",
+      "port": 443,
+      "tunnel_ms": 272.52,
+      "http_status": "204"
+    },
+    {
+      "config": "trojan://dba20dcb635e430fa4d3bfc303a149d2@blog.findlocaljobnetworkandbuildcommunityconnections.com:443?security=tls&insecure=0&headerType=none&type=tcp&allowInsecure=0#US",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "blog.findlocaljobnetworkandbuildcommunityconnections.com",
+      "port": 443,
+      "tunnel_ms": 337.49,
+      "http_status": "204"
+    },
+    {
+      "config": "trojan://f0eb8c92ce8946aaba856569cff1a16b@resources.findlocaljobnetworkandbuildcommunityconnections.com:443?security=tls&insecure=0&headerType=none&type=tcp&allowInsecure=0&sni=resources.findlocaljobnetworkandbuildcommunityconnections.com#US",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "resources.findlocaljobnetworkandbuildcommunityconnections.com",
+      "port": 443,
+      "tunnel_ms": 393.28,
       "http_status": "204"
     },
     {
@@ -1029,31 +1037,23 @@
       "source": "https://github.com/F0rc3Run/F0rc3Run#Best-Results/sub.txt",
       "host": "163.245.42.48",
       "port": 443,
-      "tunnel_ms": 661.43,
+      "tunnel_ms": 432.42,
       "http_status": "204"
     },
     {
-      "config": "trojan://humanity@188.114.97.6:443?path=/assignment&security=tls&insecure=0&host=www.calmlunch.com&ech=ip.gs+udp://8.8.8.8&type=ws&allowInsecure=0&sni=www.calmlunch.com#hamedp71%3A%3A%F0%9F%87%AB%F0%9F%87%B7",
+      "config": "vless://4ee88ef0-8922-48ce-9cd4-5f67ef201b35@31.76.252.113:51593/?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=intel.com&fp=chrome&security=reality&pbk=bnA5VC6PhGD2cYZyoZPr8Ah43WgQtzHuZbpywgoZH2k&sid=167afe9a97a1#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-33%20%F0%9F%87%B3%F0%9F%87%B1",
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "31.76.252.113",
+      "port": 51593,
+      "tunnel_ms": 437.03,
+      "http_status": "204"
+    },
+    {
+      "config": "trojan://humanity@www.speedtest.net:443?security=tls&sni=www.calmlunch.com&ech=ip.gs%2Budp%3A%2F%2F8.8.8.8&type=ws&host=www.calmlunch.com&path=%2Fassignment#hamedp71%3A%3A%F0%9F%87%AB%F0%9F%87%B7",
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "188.114.97.6",
+      "host": "www.speedtest.net",
       "port": 443,
-      "tunnel_ms": 726.44,
-      "http_status": "204"
-    },
-    {
-      "config": "vless://77479eaf-c35e-4088-ae47-a2beb88a7272@uk.2ul.top:443?encryption=none&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=C-e3vasFC42zQmJblol4foZozTe6j1c7TJMGqjvRm2U&sid=77479eaf&type=tcp&headerType=none#https:%2F%2Ft.me%2FForceRunVPN-%F0%9F%87%AC%F0%9F%87%A7-Worcester-477ms-MISTRAL",
-      "source": "https://github.com/F0rc3Run/F0rc3Run#Best-Results/sub.txt",
-      "host": "uk.2ul.top",
-      "port": 443,
-      "tunnel_ms": 732.28,
-      "http_status": "204"
-    },
-    {
-      "config": "trojan://humanity@45.38.3.25:443?path=%2Fassignment&security=tls&alpn=http%2F1.1&insecure=0&host=www.pleadcourt.org&type=ws&allowInsecure=0&sni=www.pleadcourt.org&fp=android#US",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "45.38.3.25",
-      "port": 443,
-      "tunnel_ms": 736.79,
+      "tunnel_ms": 449.22,
       "http_status": "204"
     }
   ],
