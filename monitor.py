@@ -13,6 +13,9 @@ import os
 import re
 import socket
 import time
+import subprocess
+import tempfile
+import shutil
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -30,6 +33,9 @@ PROBE_ATTEMPTS = 3
 MAX_ACCEPTABLE_TCP_MS = 1200
 MAX_TCP_JITTER_MS = 500
 MAX_TESTS = 500
+MAX_TUNNEL_TESTS = 100
+TUNNEL_TIMEOUT_SECONDS = 7
+TEST_URL = "https://www.gstatic.com/generate_204"
 OUTPUT_LIMIT = 15
 PER_OPERATOR_LIMIT = 5
 UA = "scan_link-daily-monitor/1.0"
@@ -189,30 +195,139 @@ def is_valid_config(config: str) -> bool:
     return False
 
 
-def tcp_probe(host: str, port: int) -> dict:
-    """Require repeated successful TCP handshakes and report the median latency."""
-    samples = []
-    for _ in range(PROBE_ATTEMPTS):
-        start = time.perf_counter()
+def xray_outbound(config: str) -> dict | None:
+    """Convert common share links to Xray outbound JSON. Unsupported schemes are skipped."""
+    scheme = config.split("://", 1)[0].lower()
+    body = config.split("://", 1)[1].split("#", 1)[0]
+    q = urllib.parse.parse_qs(urllib.parse.urlsplit(config).query, keep_blank_values=True)
+    def one(key, default=""):
+        return q.get(key, [default])[0]
+    try:
+        if scheme == "vmess":
+            raw = base64.urlsafe_b64decode(body + "=" * (-len(body) % 4))
+            v = json.loads(raw.decode("utf-8"))
+            host, port, user_id = str(v["add"]), int(v["port"]), str(v["id"])
+            net = str(v.get("net", "tcp")).lower()
+            security = str(v.get("tls", "")).lower()
+            stream = {"network": net, "security": "tls" if security in ("tls", "true") else "none"}
+            if stream["security"] == "tls":
+                stream["tlsSettings"] = {"serverName": str(v.get("sni") or v.get("host") or host), "allowInsecure": False}
+            if net == "ws":
+                stream["wsSettings"] = {"path": str(v.get("path", "/")), "headers": {"Host": str(v.get("host") or host)}}
+            elif net == "grpc":
+                stream["grpcSettings"] = {"serviceName": str(v.get("path", ""))}
+            elif net == "httpupgrade":
+                stream["httpupgradeSettings"] = {"path": str(v.get("path", "/")), "host": str(v.get("host") or host)}
+            return {"protocol": "vmess", "settings": {"vnext": [{"address": host, "port": port, "users": [{"id": user_id, "alterId": int(v.get("aid", 0) or 0), "security": str(v.get("scy", "auto") or "auto")}]}]}, "streamSettings": stream}
+        parsed = urllib.parse.urlsplit(config)
+        host, port = parsed.hostname, parsed.port
+        if not host or not port:
+            return None
+        if scheme == "vless":
+            uid = urllib.parse.unquote(parsed.username or "")
+            if not uid:
+                return None
+            net = one("type", "tcp").lower()
+            security = one("security", "none").lower()
+            stream = {"network": net, "security": security}
+            if security == "tls":
+                stream["tlsSettings"] = {"serverName": one("sni", host), "allowInsecure": False}
+                if one("fp"):
+                    stream["tlsSettings"]["fingerprint"] = one("fp")
+            elif security == "reality":
+                stream["realitySettings"] = {"serverName": one("sni", host), "fingerprint": one("fp", "chrome"), "publicKey": one("pbk"), "shortId": one("sid"), "spiderX": one("spx", "/")}
+                if not one("pbk"):
+                    return None
+            if net == "ws":
+                stream["wsSettings"] = {"path": one("path", "/"), "headers": {"Host": one("host", host)}}
+            elif net == "grpc":
+                stream["grpcSettings"] = {"serviceName": one("serviceName", one("service_name", "")), "multiMode": one("mode") == "multi"}
+            elif net == "httpupgrade":
+                stream["httpupgradeSettings"] = {"path": one("path", "/"), "host": one("host", host)}
+            elif net not in ("tcp", "raw", "kcp"):
+                return None
+            flow = one("flow")
+            user = {"id": uid, "encryption": one("encryption", "none")}
+            if flow:
+                user["flow"] = flow
+            return {"protocol": "vless", "settings": {"vnext": [{"address": host, "port": port, "users": [user]}]}, "streamSettings": stream}
+        if scheme == "trojan":
+            password = urllib.parse.unquote(parsed.username or "")
+            if not password:
+                return None
+            stream = {"network": one("type", "tcp"), "security": "tls", "tlsSettings": {"serverName": one("sni", one("peer", host)), "allowInsecure": False}}
+            if one("fp"):
+                stream["tlsSettings"]["fingerprint"] = one("fp")
+            if stream["network"] == "ws":
+                stream["wsSettings"] = {"path": one("path", "/"), "headers": {"Host": one("host", host)}}
+            elif stream["network"] == "grpc":
+                stream["grpcSettings"] = {"serviceName": one("serviceName", "")}
+            elif stream["network"] not in ("tcp", "raw"):
+                return None
+            return {"protocol": "trojan", "settings": {"servers": [{"address": host, "port": port, "password": password}]}, "streamSettings": stream}
+        if scheme == "ss":
+            candidate = body.split("?", 1)[0]
+            if "@" not in candidate:
+                candidate = base64.urlsafe_b64decode(candidate + "=" * (-len(candidate) % 4)).decode()
+            userinfo, authority = candidate.rsplit("@", 1)
+            if ":" not in userinfo:
+                return None
+            method, password = userinfo.split(":", 1)
+            parsed_auth = urllib.parse.urlsplit("//" + authority)
+            if not parsed_auth.hostname or not parsed_auth.port:
+                return None
+            return {"protocol": "shadowsocks", "settings": {"servers": [{"address": parsed_auth.hostname, "port": parsed_auth.port, "method": method, "password": urllib.parse.unquote(password)}]}}
+    except (ValueError, KeyError, TypeError, UnicodeDecodeError, json.JSONDecodeError):
+        return None
+    return None
+
+
+def tunnel_probe(config: str, xray_path: str) -> dict:
+    """Run one config with Xray and require a real HTTPS response through its SOCKS tunnel."""
+    outbound = xray_outbound(config)
+    if not outbound:
+        return {"tunnel_ok": False, "tunnel_ms": None, "error": "unsupported_or_unparseable"}
+    with tempfile.TemporaryDirectory(prefix="scan-link-") as tmp:
+        config_path = Path(tmp) / "xray.json"
+        runtime_config = {
+            "log": {"loglevel": "none"},
+            "inbounds": [{"listen": "127.0.0.1", "port": 10808, "protocol": "socks", "settings": {"udp": False}}],
+            "outbounds": [outbound, {"protocol": "freedom", "tag": "direct"}],
+        }
+        config_path.write_text(json.dumps(runtime_config), encoding="utf-8")
+        started = time.perf_counter()
+        proc = None
         try:
-            with socket.create_connection((host, port), timeout=TIMEOUT_SECONDS):
-                samples.append(round((time.perf_counter() - start) * 1000, 2))
-        except Exception:
-            pass
-    if len(samples) != PROBE_ATTEMPTS:
-        return {"tcp_reachable": False, "tcp_connect_ms": None, "tcp_samples_ms": samples, "error": "probe_not_stable"}
-    samples_sorted = sorted(samples)
-    median = samples_sorted[len(samples_sorted) // 2]
-    jitter = max(samples) - min(samples)
-    passed = max(samples) <= MAX_ACCEPTABLE_TCP_MS and jitter <= MAX_TCP_JITTER_MS
-    return {
-        "tcp_reachable": passed,
-        "tcp_connect_ms": median,
-        "tcp_samples_ms": samples,
-        "tcp_max_ms": max(samples),
-        "tcp_jitter_ms": round(jitter, 2),
-        "error": None if passed else "latency_or_jitter_threshold",
-    }
+            proc = subprocess.Popen([xray_path, "run", "-c", str(config_path)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            deadline = time.monotonic() + 2.0
+            while time.monotonic() < deadline:
+                if proc.poll() is not None:
+                    return {"tunnel_ok": False, "tunnel_ms": None, "error": "xray_start_failed"}
+                try:
+                    with socket.create_connection(("127.0.0.1", 10808), timeout=0.15):
+                        break
+                except OSError:
+                    time.sleep(0.05)
+            else:
+                return {"tunnel_ok": False, "tunnel_ms": None, "error": "local_proxy_not_ready"}
+            result = subprocess.run(
+                ["curl", "--silent", "--show-error", "--output", os.devnull, "--max-time", str(TUNNEL_TIMEOUT_SECONDS),
+                 "--write-out", "%{http_code}", "--socks5-hostname", "127.0.0.1:10808", TEST_URL],
+                stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True, timeout=TUNNEL_TIMEOUT_SECONDS + 2,
+            )
+            elapsed = round((time.perf_counter() - started) * 1000, 2)
+            ok = result.returncode == 0 and result.stdout.strip().isdigit() and 200 <= int(result.stdout.strip()) < 400
+            return {"tunnel_ok": ok, "tunnel_ms": elapsed if ok else None, "http_status": result.stdout.strip() if result.returncode == 0 else None, "error": None if ok else "https_through_tunnel_failed"}
+        except (OSError, subprocess.TimeoutExpired):
+            return {"tunnel_ok": False, "tunnel_ms": None, "error": "probe_timeout_or_runtime_error"}
+        finally:
+            if proc is not None:
+                proc.terminate()
+                try:
+                    proc.wait(timeout=1)
+                except subprocess.TimeoutExpired:
+                    proc.kill()
+                    proc.wait(timeout=1)
 
 def main() -> None:
     CONFIG_DIR.mkdir(exist_ok=True)
@@ -233,79 +348,57 @@ def main() -> None:
             source_status.append({"source": url, "ok": False, "error": type(exc).__name__})
             print(f"WARN source failed {url}: {type(exc).__name__}")
 
+    xray_path = shutil.which("xray") or os.environ.get("XRAY_PATH")
     tested = []
-    # Stable hash-based sampling avoids always testing only the first source's configs.
-    # The sample is reproducible for a given set of input configs, but spans the full pool.
-    candidates = sorted(
-        unique.items(),
-        key=lambda item: hashlib.sha256(item[0].encode("utf-8")).digest(),
-    )[:MAX_TESTS]
-    for config, meta in candidates:
-        ep = endpoint(config)
-        if not ep or not is_valid_config(config):
-            tested.append({"config": config, **meta, "tcp_reachable": False, "tcp_connect_ms": None, "error": "unsupported_or_unparseable_endpoint"})
+    candidates = sorted(unique.items(), key=lambda item: hashlib.sha256(item[0].encode("utf-8")).digest())[:MAX_TESTS]
+    tunnel_candidates = [item for item in candidates if xray_outbound(item[0]) is not None][:MAX_TUNNEL_TESTS]
+    if not xray_path:
+        print("ERROR: Xray binary not found; refusing to publish unverified configs.")
+    else:
+        for config, meta in tunnel_candidates:
+            result = tunnel_probe(config, xray_path)
+            ep = endpoint(config)
+            host, port = ep if ep else ("", 0)
+            tested.append({"config": config, **meta, "host": host, "port": port, **result})
+            if result.get("tunnel_ok"):
+                print(f"TUNNEL OK {host}:{port} {result.get('tunnel_ms')}ms")
+    working = sorted((x for x in tested if x.get("tunnel_ok")), key=lambda x: x["tunnel_ms"])
+    seen, unique_working = set(), []
+    for item in working:
+        key = (item.get("host"), item.get("port"))
+        if key in seen:
             continue
-        host, port = ep
-        result = tcp_probe(host, port)
-        tested.append({"config": config, **meta, "host": host, "port": port, **result})
-
-    reachable_candidates = sorted(
-        (x for x in tested if x.get("tcp_reachable") and x.get("tcp_connect_ms") is not None),
-        key=lambda x: x["tcp_connect_ms"]
-    )
-    # Keep only the fastest config for each host:port so duplicate aliases do not
-    # occupy the entire public top-10 list.
-    reachable, seen_endpoints = [], set()
-    for item in reachable_candidates:
-        endpoint_key = (item.get("host"), item.get("port"))
-        if endpoint_key in seen_endpoints:
-            continue
-        seen_endpoints.add(endpoint_key)
-        reachable.append(item)
+        seen.add(key)
+        unique_working.append(item)
     stamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
     report = {
         "generated_at_utc": stamp,
-        "test_environment": "GitHub-hosted Ubuntu runner",
-        "method": f"Strict TCP screening: {PROBE_ATTEMPTS}/{PROBE_ATTEMPTS} successful handshakes, max sample <= {MAX_ACCEPTABLE_TCP_MS} ms and jitter <= {MAX_TCP_JITTER_MS} ms; not a VPN tunnel or ISP-specific test",
+        "test_environment": "GitHub-hosted Ubuntu runner; not an Iranian ISP",
+        "method": f"Xray tunnel test: start supported outbound, then HTTPS GET to {TEST_URL} through local SOCKS5; timeout {TUNNEL_TIMEOUT_SECONDS}s. Successful tunnel tests only are published.",
         "sources": source_status,
         "unique_configs_found": len(unique),
-        "endpoints_tested": len(tested),
-        "tcp_reachable_count": len(reachable_candidates),
-        "unique_reachable_endpoints": len(reachable),
-        "fastest_tcp_endpoints": [
-            {k: x.get(k) for k in ("config", "source", "host", "port", "tcp_connect_ms", "tcp_samples_ms", "tcp_max_ms", "tcp_jitter_ms")}
-            for x in reachable[:OUTPUT_LIMIT]
-        ],
+        "candidate_configs_tested": len(tested),
+        "tunnel_success_count": len(working),
+        "unique_working_endpoints": len(unique_working),
+        "tested": [{k: x.get(k) for k in ("source", "host", "port", "tunnel_ok", "tunnel_ms", "http_status", "error")} for x in tested],
+        "fastest_tunnel_configs": [{k: x.get(k) for k in ("config", "source", "host", "port", "tunnel_ms", "http_status")} for x in unique_working[:OUTPUT_LIMIT]],
         "operator_status": {
-            "hamrah_aval": {"verified": False, "reason": "No test probe on the Hamrah Aval network is configured."},
-            "irancell": {"verified": False, "reason": "No test probe on the Irancell network is configured."},
-            "mokhaberat": {"verified": False, "reason": "No test probe on the fixed-line network is configured."}
+            "hamrah_aval": {"verified": False, "reason": "GitHub runner is not connected to Hamrah Aval."},
+            "irancell": {"verified": False, "reason": "GitHub runner is not connected to Irancell."},
+            "mokhaberat": {"verified": False, "reason": "GitHub runner is not connected to the fixed-line network."}
         }
     }
     (REPORT_DIR / "latest.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (CONFIG_DIR / "fastest-tcp.txt").write_text(
-        "# Top 15 strict TCP-screened candidates from GitHub Actions; NOT verified working VPN tunnels.\n"
-        f"# Generated UTC: {stamp}\n"
-        f"# Requires {PROBE_ATTEMPTS}/{PROBE_ATTEMPTS} successful TCP handshakes, max <= {MAX_ACCEPTABLE_TCP_MS} ms, jitter <= {MAX_TCP_JITTER_MS} ms.\n" +
-        "".join(x["config"] + "\n" for x in reachable[:OUTPUT_LIMIT]), encoding="utf-8"
-    )
-    # Provisional lists are partitioned by rank, not tested from the named ISP.
-    operator_files = (
-        ("hamrah-aval.txt", "Hamrah Aval", 0),
-        ("irancell.txt", "Irancell", 1),
-        ("mokhaberat.txt", "Mokhaberat fixed-line", 2),
-    )
-    for filename, label, group_index in operator_files:
-        group = reachable[group_index * PER_OPERATOR_LIMIT:(group_index + 1) * PER_OPERATOR_LIMIT]
-        header = (
-            f"# {label}: provisional candidates ranked from GitHub Actions, NOT tested on this ISP.\n"
-            "# TCP reachability is not proof that the VPN tunnel works.\n"
-            f"# Generated UTC: {stamp}\n"
-        )
+    header = (f"# Only configs that passed an Xray tunnel + HTTPS request test; generated UTC: {stamp}\n"
+              f"# Environment: GitHub Actions, not an Iranian ISP. Successful tunnel tests: {len(unique_working)}\n")
+    (CONFIG_DIR / "fastest-tcp.txt").write_text(header + "".join(x["config"] + "\n" for x in unique_working[:OUTPUT_LIMIT]), encoding="utf-8")
+    for filename, label in (("hamrah-aval.txt", "Hamrah Aval"), ("irancell.txt", "Irancell"), ("mokhaberat.txt", "Mokhaberat fixed-line")):
         (CONFIG_DIR / filename).write_text(
-            header + "".join(x["config"] + "\n" for x in group), encoding="utf-8"
+            f"# No ISP-specific verification is available for {label}; do not treat this as an operator-tested list.\n"
+            f"# Generic Xray tunnel successes from GitHub runner: {len(unique_working)}\n"
+            + "".join(x["config"] + "\n" for x in unique_working[:PER_OPERATOR_LIMIT]), encoding="utf-8"
         )
-    print(f"Finished: {len(unique)} unique configs, {len(reachable)} strict TCP-screened endpoints.")
+    print(f"Finished: {len(unique)} unique configs, {len(tested)} tunnel tests, {len(unique_working)} verified HTTPS-through-tunnel candidates.")
     if not sources:
         print("WARN: no sources configured.")
 
