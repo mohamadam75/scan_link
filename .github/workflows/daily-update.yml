@@ -45,14 +45,20 @@ jobs:
       - name: Collect sources and test real Xray tunnels
         run: python monitor.py
 
-      - name: Commit report
+      - name: Refresh from latest main and commit report
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Multiple queued workflow runs may have advanced main since checkout.
+          # Rebase the generated report on the current branch before committing.
+          git fetch origin main
+          git reset --hard origin/main
+          python monitor.py
           git add configs reports
           if git diff --cached --quiet; then
             echo "No report changes to commit."
           else
-            git commit -m "chore: refresh daily VPN endpoint report"
-            git push
+            git commit -m "chore: refresh daily VPN tunnel report"
+            git push origin HEAD:main
           fi
