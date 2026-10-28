@@ -31,10 +31,18 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install Xray core
+        run: |
+          set -euo pipefail
+          curl -fsSL https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip -o /tmp/xray.zip
+          python -m zipfile -e /tmp/xray.zip /tmp/xray-bin
+          sudo install /tmp/xray-bin/xray /usr/local/bin/xray
+          xray version
+
       - name: Run parser unit tests
         run: python -m unittest discover -s tests -v
 
-      - name: Collect sources and test TCP reachability
+      - name: Collect sources and test real Xray tunnels
         run: python monitor.py
 
       - name: Commit report
