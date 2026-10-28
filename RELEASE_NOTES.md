@@ -15,3 +15,5 @@
 - The generated operator-named lists are not proof of operator-specific compatibility.
 - A successful probe is a point-in-time result; public endpoints can stop working at any time.
 - One source may return no parseable configurations in a given run.
+
+Release version: v1.0.0
