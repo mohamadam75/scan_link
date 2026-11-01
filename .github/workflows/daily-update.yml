@@ -5,7 +5,10 @@ on:
     branches: [main]
     paths-ignore:
       - "configs/**"
-      - "reports/**"\n      - "web/**"\n      - "README.md"\n      - ".github/workflows/deploy-web.yml"
+      - "reports/**"
+      - "web/**"
+      - "README.md"
+      - ".github/workflows/deploy-web.yml"
   schedule:
     # 07:00 Iran time (UTC+03:30) = 03:30 UTC
     - cron: "30 3 * * *"
