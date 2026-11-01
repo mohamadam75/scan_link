@@ -165,6 +165,32 @@ def endpoint(config: str) -> tuple[str, int] | None:
         pass
     return None
 
+def config_fingerprint(config: str) -> str:
+    """Stable identity that ignores display names and query-parameter ordering."""
+    scheme, body = config.split("://", 1)
+    scheme = scheme.lower()
+    if scheme == "vmess":
+        token = body.split("#", 1)[0]
+        try:
+            raw = base64.urlsafe_b64decode(token + "=" * (-len(token) % 4))
+            obj = json.loads(raw.decode("utf-8"))
+            return "vmess://" + json.dumps(obj, sort_keys=True, separators=(",", ":"))
+        except Exception:
+            return scheme + "://" + token
+    parsed = urllib.parse.urlsplit(config)
+    host = (parsed.hostname or "").lower()
+    try:
+        port = parsed.port
+    except ValueError:
+        port = None
+    user = urllib.parse.unquote(parsed.username or "")
+    password = urllib.parse.unquote(parsed.password or "")
+    auth = user + ((":" + password) if parsed.password is not None else "")
+    query = urllib.parse.urlencode(sorted(urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)))
+    authority = (auth + "@" if auth else "") + host + ((":" + str(port)) if port else "")
+    return urllib.parse.urlunsplit((scheme, authority, parsed.path, query, ""))
+
+
 def is_valid_config(config: str) -> bool:
     """Conservative syntax/endpoint validation; this does not prove tunnel functionality."""
     if any(ch in config for ch in ("\n", "\r", "<", ">")):
@@ -340,7 +366,7 @@ def main() -> None:
             count = 0
             for source_label, text in chunks:
                 for config in extract_configs(text):
-                    unique.setdefault(config, {"source": source_label})
+                    unique.setdefault(config_fingerprint(config), {"config": config, "source": source_label})
                     count += 1
             source_status.append({"source": url, "ok": True, "configs_found": count})
             print(f"OK {url}: {count} config entries")
@@ -348,14 +374,20 @@ def main() -> None:
             source_status.append({"source": url, "ok": False, "error": type(exc).__name__})
             print(f"WARN source failed {url}: {type(exc).__name__}")
 
+    # Never replace a previously published working list with an empty/stale run
+    # when every configured source is temporarily unavailable.
+    if not any(item.get("ok") for item in source_status):
+        raise RuntimeError("All configured sources failed; refusing to overwrite last known-good outputs.")
+
     xray_path = shutil.which("xray") or os.environ.get("XRAY_PATH")
     tested = []
-    candidates = sorted(unique.items(), key=lambda item: hashlib.sha256(item[0].encode("utf-8")).digest())[:MAX_TESTS]
-    tunnel_candidates = [item for item in candidates if xray_outbound(item[0]) is not None][:MAX_TUNNEL_TESTS]
+    candidates = sorted(unique.values(), key=lambda item: hashlib.sha256(item["config"].encode("utf-8")).digest())[:MAX_TESTS]
+    tunnel_candidates = [item for item in candidates if xray_outbound(item["config"]) is not None][:MAX_TUNNEL_TESTS]
     if not xray_path:
         print("ERROR: Xray binary not found; refusing to publish unverified configs.")
     else:
-        for config, meta in tunnel_candidates:
+        for meta in tunnel_candidates:
+            config = meta["config"]
             result = tunnel_probe(config, xray_path)
             ep = endpoint(config)
             host, port = ep if ep else ("", 0)
