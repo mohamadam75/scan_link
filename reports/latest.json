@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-10-31T10:00:13+00:00",
+  "generated_at_utc": "2026-11-01T10:52:30+00:00",
   "test_environment": "GitHub-hosted Ubuntu runner; not an Iranian ISP",
   "method": "Xray tunnel test: start supported outbound, then HTTPS GET to https://www.gstatic.com/generate_204 through local SOCKS5; timeout 7s. Successful tunnel tests only are published.",
   "sources": [
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs",
       "ok": true,
-      "configs_found": 5906
+      "configs_found": 5931
     },
     {
       "source": "https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash",
@@ -16,24 +16,33 @@
     {
       "source": "https://github.com/F0rc3Run/F0rc3Run",
       "ok": true,
-      "configs_found": 1118
+      "configs_found": 1150
     },
     {
       "source": "https://github.com/nodesradar/nodesradar-en",
       "ok": true,
-      "configs_found": 28
+      "configs_found": 29
     },
     {
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
       "ok": true,
-      "configs_found": 2784
+      "configs_found": 2334
     }
   ],
-  "unique_configs_found": 8226,
+  "unique_configs_found": 7863,
   "candidate_configs_tested": 100,
-  "tunnel_success_count": 52,
-  "unique_working_endpoints": 49,
+  "tunnel_success_count": 40,
+  "unique_working_endpoints": 39,
   "tested": [
+    {
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "193.124.17.190",
+      "port": 443,
+      "tunnel_ok": true,
+      "tunnel_ms": 3462.89,
+      "http_status": "204",
+      "error": null
+    },
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
       "host": "188.114.97.6",
@@ -62,6 +71,42 @@
       "error": "xray_start_failed"
     },
     {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
+      "host": "38.107.234.57",
+      "port": 80,
+      "tunnel_ok": true,
+      "tunnel_ms": 1172.92,
+      "http_status": "204",
+      "error": null
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "132.145.51.172",
+      "port": 443,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "54.180.151.15",
+      "port": 443,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
+    },
+    {
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "45.76.155.179",
+      "port": 443,
+      "tunnel_ok": true,
+      "tunnel_ms": 3261.19,
+      "http_status": "204",
+      "error": null
+    },
+    {
       "source": "https://github.com/F0rc3Run/F0rc3Run#Special/Telegram.txt",
       "host": "13.39.231.13",
       "port": 22223,
@@ -71,31 +116,22 @@
       "error": "xray_start_failed"
     },
     {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "169.197.140.214",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "104.19.95.153",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 216.75,
+      "tunnel_ms": 666.12,
       "http_status": "204",
       "error": null
     },
     {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
-      "host": "singapore.com",
-      "port": 2086,
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "45.85.118.50",
+      "port": 8880,
       "tunnel_ok": false,
       "tunnel_ms": null,
       "http_status": null,
-      "error": "https_through_tunnel_failed"
-    },
-    {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
-      "host": "172.67.164.125",
-      "port": 443,
-      "tunnel_ok": false,
-      "tunnel_ms": null,
-      "http_status": null,
-      "error": "https_through_tunnel_failed"
+      "error": "xray_start_failed"
     },
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_2053.txt",
@@ -107,44 +143,62 @@
       "error": "https_through_tunnel_failed"
     },
     {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "sg2-8sb.6121999.dpdns.org",
-      "port": 19825,
-      "tunnel_ok": true,
-      "tunnel_ms": 4037.43,
-      "http_status": "204",
-      "error": null
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
+      "host": "v2ray.online",
+      "port": 443,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
+      "host": "173.245.49.156",
+      "port": 8443,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
     },
     {
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "3.114.220.22",
-      "port": 18007,
-      "tunnel_ok": true,
-      "tunnel_ms": 1446.9,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "216.152.147.89",
+      "host": "hk2.huahua.wiki",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 159.99,
+      "tunnel_ms": 2087.74,
+      "http_status": "204",
+      "error": null
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_465.txt",
+      "host": "hw3.divarkhaghazi.com",
+      "port": 465,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
+      "host": "203.23.104.242",
+      "port": 2053,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
+      "host": "www.ubuntuupdates.com",
+      "port": 443,
+      "tunnel_ok": true,
+      "tunnel_ms": 1906.52,
       "http_status": "204",
       "error": null
     },
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
       "host": "216.152.155.59",
-      "port": 443,
-      "tunnel_ok": true,
-      "tunnel_ms": 3155.82,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
-      "host": "104.17.69.9",
       "port": 443,
       "tunnel_ok": false,
       "tunnel_ms": null,
@@ -162,26 +216,44 @@
     },
     {
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "89.35.14.30",
+      "host": "ghosts-spasm.quick-cdn.net",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 3043.69,
+      "tunnel_ms": 540.59,
+      "http_status": "204",
+      "error": null
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "209.250.236.93",
+      "port": 443,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
+    },
+    {
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "77.91.68.70",
+      "port": 55983,
+      "tunnel_ok": true,
+      "tunnel_ms": 2125.62,
       "http_status": "204",
       "error": null
     },
     {
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "104.16.10.104",
+      "host": "216.152.156.49",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 5530.3,
+      "tunnel_ms": 241.74,
       "http_status": "204",
       "error": null
     },
     {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_2095.txt",
-      "host": "ir2.irankatooni.ir",
-      "port": 2095,
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "official.seoulcitygovernment.com.ua",
+      "port": 8443,
       "tunnel_ok": false,
       "tunnel_ms": null,
       "http_status": null,
@@ -200,24 +272,6 @@
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_2063.txt",
       "host": "31.77.13.19",
       "port": 2063,
-      "tunnel_ok": true,
-      "tunnel_ms": 3292.66,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "167.17.69.171",
-      "port": 443,
-      "tunnel_ok": true,
-      "tunnel_ms": 177.59,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "br001.zestapp778.com",
-      "port": 39533,
       "tunnel_ok": false,
       "tunnel_ms": null,
       "http_status": null,
@@ -225,10 +279,37 @@
     },
     {
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "54.169.200.246",
-      "port": 41688,
+      "host": "pl1.h1cloud.net",
+      "port": 27591,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
+    },
+    {
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "adheres-scruple.quick-cdn.net",
+      "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 1225.39,
+      "tunnel_ms": 377.64,
+      "http_status": "204",
+      "error": null
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "us001.zestapp778.com",
+      "port": 57277,
+      "tunnel_ok": true,
+      "tunnel_ms": 3220.27,
+      "http_status": "204",
+      "error": null
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "104.19.95.153",
+      "port": 443,
+      "tunnel_ok": true,
+      "tunnel_ms": 642.7,
       "http_status": "204",
       "error": null
     },
@@ -243,46 +324,19 @@
     },
     {
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "178.83.45.226",
-      "port": 10000,
-      "tunnel_ok": false,
-      "tunnel_ms": null,
-      "http_status": null,
-      "error": "xray_start_failed"
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "ov-germany1.09vpn.com",
-      "port": 80,
-      "tunnel_ok": false,
-      "tunnel_ms": null,
-      "http_status": null,
-      "error": "xray_start_failed"
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "91.107.180.176",
-      "port": 465,
+      "host": "54.37.136.194",
+      "port": 2053,
       "tunnel_ok": true,
-      "tunnel_ms": 1373.72,
+      "tunnel_ms": 2478.85,
       "http_status": "204",
       "error": null
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "uae.unixzone.us",
-      "port": 22573,
-      "tunnel_ok": false,
-      "tunnel_ms": null,
-      "http_status": null,
-      "error": "xray_start_failed"
     },
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
       "host": "188.114.97.6",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 525.76,
+      "tunnel_ms": 620.09,
       "http_status": "204",
       "error": null
     },
@@ -296,9 +350,18 @@
       "error": "https_through_tunnel_failed"
     },
     {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "45.9.10.103",
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "server.slavkiti.monster",
       "port": 443,
+      "tunnel_ok": true,
+      "tunnel_ms": 2056.56,
+      "http_status": "204",
+      "error": null
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_1260.txt",
+      "host": "p1real4.greewebservices.ir",
+      "port": 1260,
       "tunnel_ok": false,
       "tunnel_ms": null,
       "http_status": null,
@@ -306,30 +369,12 @@
     },
     {
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "147.45.108.45",
+      "host": "130.12.242.106",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 911.0,
+      "tunnel_ms": 525.41,
       "http_status": "204",
       "error": null
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "77.91.68.70",
-      "port": 55983,
-      "tunnel_ok": true,
-      "tunnel_ms": 1949.15,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "178.83.45.226",
-      "port": 8080,
-      "tunnel_ok": false,
-      "tunnel_ms": null,
-      "http_status": null,
-      "error": "xray_start_failed"
     },
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_1222.txt",
@@ -350,13 +395,31 @@
       "error": "xray_start_failed"
     },
     {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "sc-thenetherlands2.09vpn.com",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_80.txt",
+      "host": "::ffff:681f:10c5",
       "port": 80,
       "tunnel_ok": false,
       "tunnel_ms": null,
       "http_status": null,
       "error": "xray_start_failed"
+    },
+    {
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "161.97.160.224",
+      "port": 443,
+      "tunnel_ok": true,
+      "tunnel_ms": 1736.44,
+      "http_status": "204",
+      "error": null
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "103.69.128.221",
+      "port": 443,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
     },
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_2095.txt",
@@ -368,74 +431,29 @@
       "error": "xray_start_failed"
     },
     {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "109.248.148.140",
-      "port": 443,
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_465.txt",
+      "host": "hw7.divarkhaghazi.com",
+      "port": 465,
       "tunnel_ok": true,
-      "tunnel_ms": 606.55,
+      "tunnel_ms": 852.52,
       "http_status": "204",
       "error": null
     },
     {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_1412.txt",
-      "host": "88.216.70.43",
-      "port": 1412,
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "208.69.78.19",
+      "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 995.76,
+      "tunnel_ms": 1253.18,
       "http_status": "204",
       "error": null
     },
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
-      "host": "xIvYT9T3GrgoRgc5.v.3dns.vip",
-      "port": 443,
-      "tunnel_ok": false,
-      "tunnel_ms": null,
-      "http_status": null,
-      "error": "https_through_tunnel_failed"
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "66.70.179.198",
-      "port": 2053,
+      "host": "cdn.sfacg.uk",
+      "port": 2083,
       "tunnel_ok": true,
-      "tunnel_ms": 210.98,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_465.txt",
-      "host": "hw7.divarkhaghazi.com",
-      "port": 465,
-      "tunnel_ok": true,
-      "tunnel_ms": 730.27,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "208.69.78.158",
-      "port": 443,
-      "tunnel_ok": true,
-      "tunnel_ms": 4206.35,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "146.235.16.130",
-      "port": 19825,
-      "tunnel_ok": true,
-      "tunnel_ms": 4974.69,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "104.16.0.1",
-      "port": 443,
-      "tunnel_ok": true,
-      "tunnel_ms": 2116.42,
+      "tunnel_ms": 1210.17,
       "http_status": "204",
       "error": null
     },
@@ -449,38 +467,11 @@
       "error": "xray_start_failed"
     },
     {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "216.106.186.32",
-      "port": 443,
-      "tunnel_ok": true,
-      "tunnel_ms": 261.67,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "195.123.235.177",
-      "port": 443,
-      "tunnel_ok": true,
-      "tunnel_ms": 177.2,
-      "http_status": "204",
-      "error": null
-    },
-    {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
       "host": "104.18.35.86",
       "port": 443,
-      "tunnel_ok": false,
-      "tunnel_ms": null,
-      "http_status": null,
-      "error": "https_through_tunnel_failed"
-    },
-    {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "216.152.147.93",
-      "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 161.63,
+      "tunnel_ms": 4814.12,
       "http_status": "204",
       "error": null
     },
@@ -489,34 +480,43 @@
       "host": "66.163.114.166",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 194.57,
+      "tunnel_ms": 181.55,
       "http_status": "204",
       "error": null
     },
     {
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "188.114.98.0",
+      "host": "31.59.143.147",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 242.19,
+      "tunnel_ms": 1795.43,
       "http_status": "204",
       "error": null
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
+      "host": "142.132.163.200",
+      "port": 80,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
+    },
+    {
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "54.37.136.194",
+      "port": 2053,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
     },
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
       "host": "rhhierkwrf6fhs2h.v.3dns.vip",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 1317.94,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "109.234.211.232",
-      "port": 443,
-      "tunnel_ok": true,
-      "tunnel_ms": 540.21,
+      "tunnel_ms": 2183.39,
       "http_status": "204",
       "error": null
     },
@@ -530,53 +530,89 @@
       "error": "https_through_tunnel_failed"
     },
     {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "support.zoom.us",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_8080.txt",
+      "host": "51.38.127.93",
       "port": 8080,
+      "tunnel_ok": true,
+      "tunnel_ms": 737.61,
+      "http_status": "204",
+      "error": null
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "104.18.223.253",
+      "port": 443,
       "tunnel_ok": false,
       "tunnel_ms": null,
       "http_status": null,
-      "error": "xray_start_failed"
+      "error": "https_through_tunnel_failed"
     },
     {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_465.txt",
-      "host": "65.109.210.221",
-      "port": 465,
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "82.118.22.161",
+      "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 2411.46,
+      "tunnel_ms": 640.76,
       "http_status": "204",
       "error": null
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/top100.txt",
+      "host": "de-tls.fluxorvpn.net",
+      "port": 443,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
     },
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_2053.txt",
       "host": "45.132.75.213",
       "port": 2053,
       "tunnel_ok": true,
-      "tunnel_ms": 4723.04,
+      "tunnel_ms": 854.99,
       "http_status": "204",
       "error": null
+    },
+    {
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "66.163.112.142",
+      "port": 443,
+      "tunnel_ok": true,
+      "tunnel_ms": 263.57,
+      "http_status": "204",
+      "error": null
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
+      "host": "38.72img.xyz",
+      "port": 443,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
     },
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
       "host": "www.speedtest.net",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 529.11,
+      "tunnel_ms": 622.43,
       "http_status": "204",
       "error": null
     },
     {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "216.106.186.32",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "88.216.69.253",
       "port": 443,
-      "tunnel_ok": true,
-      "tunnel_ms": 262.3,
-      "http_status": "204",
-      "error": null
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
     },
     {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_8443.txt",
-      "host": "172.67.155.65",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
+      "host": "172.67.156.140",
       "port": 8443,
       "tunnel_ok": false,
       "tunnel_ms": null,
@@ -593,8 +629,26 @@
       "error": "https_through_tunnel_failed"
     },
     {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "188.164.248.143",
+      "port": 443,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
+    },
+    {
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "57.129.132.223",
+      "host": "188.114.98.0",
+      "port": 443,
+      "tunnel_ok": true,
+      "tunnel_ms": 577.36,
+      "http_status": "204",
+      "error": null
+    },
+    {
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "57.129.41.216",
       "port": 80,
       "tunnel_ok": false,
       "tunnel_ms": null,
@@ -602,18 +656,27 @@
       "error": "xray_start_failed"
     },
     {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_8443.txt",
-      "host": "104.21.41.131",
-      "port": 8443,
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "199.232.78.120",
+      "port": 443,
       "tunnel_ok": false,
       "tunnel_ms": null,
       "http_status": null,
       "error": "https_through_tunnel_failed"
     },
     {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "official.tokyometropolis.kyiv.ua",
-      "port": 2053,
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "www.777061.xyz",
+      "port": 18603,
+      "tunnel_ok": true,
+      "tunnel_ms": 300.44,
+      "http_status": "204",
+      "error": null
+    },
+    {
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "47.251.25.74",
+      "port": 443,
       "tunnel_ok": false,
       "tunnel_ms": null,
       "http_status": null,
@@ -621,37 +684,10 @@
     },
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
-      "host": "HN1XXWdhVZiVJLpD.v.3dns.vip",
-      "port": 443,
-      "tunnel_ok": false,
-      "tunnel_ms": null,
-      "http_status": null,
-      "error": "https_through_tunnel_failed"
-    },
-    {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/top100.txt",
-      "host": "146.235.16.130",
-      "port": 19825,
+      "host": "67.220.95.3",
+      "port": 18000,
       "tunnel_ok": true,
-      "tunnel_ms": 4065.17,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "216.152.156.81",
-      "port": 443,
-      "tunnel_ok": true,
-      "tunnel_ms": 201.48,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "www.findlocaljobnetworkandbuildcommunityconnections.com",
-      "port": 443,
-      "tunnel_ok": true,
-      "tunnel_ms": 314.7,
+      "tunnel_ms": 217.5,
       "http_status": "204",
       "error": null
     },
@@ -666,89 +702,62 @@
     },
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "162.159.253.41",
-      "port": 443,
-      "tunnel_ok": false,
-      "tunnel_ms": null,
-      "http_status": null,
-      "error": "https_through_tunnel_failed"
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "152.69.226.63",
-      "port": 25555,
-      "tunnel_ok": false,
-      "tunnel_ms": null,
-      "http_status": null,
-      "error": "xray_start_failed"
-    },
-    {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
       "host": "170.101.101.112",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 187.22,
+      "tunnel_ms": 196.44,
       "http_status": "204",
       "error": null
     },
     {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_2053.txt",
-      "host": "95.216.27.15",
-      "port": 2053,
-      "tunnel_ok": false,
-      "tunnel_ms": null,
-      "http_status": null,
-      "error": "https_through_tunnel_failed"
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "64.176.7.205",
+      "port": 443,
+      "tunnel_ok": true,
+      "tunnel_ms": 601.84,
+      "http_status": "204",
+      "error": null
     },
     {
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "51.81.203.63",
+      "host": "172.67.203.46",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 319.37,
+      "tunnel_ms": 2234.76,
       "http_status": "204",
       "error": null
     },
     {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_8443.txt",
-      "host": "fr-1.tiptop-1.top",
-      "port": 8443,
-      "tunnel_ok": false,
-      "tunnel_ms": null,
-      "http_status": null,
-      "error": "https_through_tunnel_failed"
-    },
-    {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_465.txt",
-      "host": "hw3.divarkhaghazi.com",
-      "port": 465,
-      "tunnel_ok": false,
-      "tunnel_ms": null,
-      "http_status": null,
-      "error": "https_through_tunnel_failed"
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "dnld.chaqalli.com",
+      "port": 8180,
+      "tunnel_ok": true,
+      "tunnel_ms": 3228.88,
+      "http_status": "204",
+      "error": null
     },
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
       "host": "8.6.112.206",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 793.62,
+      "tunnel_ms": 695.81,
       "http_status": "204",
       "error": null
     },
     {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_8080.txt",
-      "host": "57.129.138.142",
-      "port": 8080,
-      "tunnel_ok": true,
-      "tunnel_ms": 565.58,
-      "http_status": "204",
-      "error": null
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "185.220.100.168",
+      "port": 443,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
     },
     {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "147.182.212.232",
-      "port": 56565,
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
+      "host": "cf-lt-dns.sharecentre.online",
+      "port": 443,
       "tunnel_ok": false,
       "tunnel_ms": null,
       "http_status": null,
@@ -768,7 +777,25 @@
       "host": "45.38.3.25",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 4853.35,
+      "tunnel_ms": 800.18,
+      "http_status": "204",
+      "error": null
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_1260.txt",
+      "host": "p1real4.greewebservices.ir",
+      "port": 1260,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "169.197.140.214",
+      "port": 443,
+      "tunnel_ok": true,
+      "tunnel_ms": 250.42,
       "http_status": "204",
       "error": null
     },
@@ -785,28 +812,28 @@
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
       "host": "57.129.132.223",
       "port": 80,
-      "tunnel_ok": true,
-      "tunnel_ms": 830.12,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_3030.txt",
-      "host": "13.49.78.36",
-      "port": 3030,
-      "tunnel_ok": true,
-      "tunnel_ms": 841.28,
-      "http_status": "204",
-      "error": null
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
     },
     {
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "185.95.231.156",
+      "host": "104.20.47.114",
+      "port": 8443,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "78.40.209.33",
       "port": 443,
-      "tunnel_ok": true,
-      "tunnel_ms": 170.41,
-      "http_status": "204",
-      "error": null
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
     },
     {
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_80.txt",
@@ -818,22 +845,13 @@
       "error": "xray_start_failed"
     },
     {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
-      "host": "surongwei.eu.org",
-      "port": 443,
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "163.172.213.174",
+      "port": 80,
       "tunnel_ok": false,
       "tunnel_ms": null,
       "http_status": null,
-      "error": "https_through_tunnel_failed"
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "193.108.119.96",
-      "port": 443,
-      "tunnel_ok": true,
-      "tunnel_ms": 518.12,
-      "http_status": "204",
-      "error": null
+      "error": "xray_start_failed"
     },
     {
       "source": "https://github.com/F0rc3Run/F0rc3Run#Special/Telegram.txt",
@@ -845,76 +863,40 @@
       "error": "xray_start_failed"
     },
     {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "104.16.7.70",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "172.66.0.118",
       "port": 443,
-      "tunnel_ok": true,
-      "tunnel_ms": 559.26,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "188.114.98.0",
-      "port": 443,
-      "tunnel_ok": true,
-      "tunnel_ms": 1517.34,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "212.227.235.66",
-      "port": 2053,
-      "tunnel_ok": true,
-      "tunnel_ms": 598.3,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "104.17.44.17",
-      "port": 443,
-      "tunnel_ok": true,
-      "tunnel_ms": 507.82,
-      "http_status": "204",
-      "error": null
-    },
-    {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "edge10.cyrionflare.com",
-      "port": 2052,
       "tunnel_ok": false,
       "tunnel_ms": null,
       "http_status": null,
-      "error": "xray_start_failed"
-    },
-    {
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/port_8443.txt",
-      "host": "177.7.51.29",
-      "port": 8443,
-      "tunnel_ok": true,
-      "tunnel_ms": 4445.12,
-      "http_status": "204",
-      "error": null
+      "error": "https_through_tunnel_failed"
     },
     {
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "178.236.16.98",
-      "port": 35728,
-      "tunnel_ok": true,
-      "tunnel_ms": 1389.89,
-      "http_status": "204",
-      "error": null
+      "host": "z1q3pv4g78.rucdncomp.pro",
+      "port": 443,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
     },
     {
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "3.39.4.109",
-      "port": 13672,
-      "tunnel_ok": true,
-      "tunnel_ms": 1553.26,
-      "http_status": "204",
-      "error": null
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "185.114.72.31",
+      "port": 2053,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
+    },
+    {
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "154.9.239.44",
+      "port": 443,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "https_through_tunnel_failed"
     },
     {
       "source": "https://github.com/F0rc3Run/F0rc3Run#Special/Telegram.txt",
@@ -927,53 +909,39 @@
     },
     {
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "169.197.140.224",
+      "host": "216.106.186.66",
       "port": 443,
       "tunnel_ok": true,
-      "tunnel_ms": 233.41,
+      "tunnel_ms": 267.39,
       "http_status": "204",
       "error": null
+    },
+    {
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "172.64.150.43",
+      "port": 2052,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "xray_start_failed"
+    },
+    {
+      "source": "https://github.com/F0rc3Run/F0rc3Run#Special/Telegram.txt",
+      "host": "fra.huge-b.com",
+      "port": 2053,
+      "tunnel_ok": false,
+      "tunnel_ms": null,
+      "http_status": null,
+      "error": "xray_start_failed"
     }
   ],
   "fastest_tunnel_configs": [
     {
-      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@216.152.147.89:443?sni=www.connectingpeoplewithgreatjobs.com#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-1594%20%F0%9F%87%A8%F0%9F%87%A6",
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "216.152.147.89",
-      "port": 443,
-      "tunnel_ms": 159.99,
-      "http_status": "204"
-    },
-    {
-      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@216.152.147.93:443?security=tls&insecure=0&headerType=none&type=tcp&allowInsecure=0&sni=connectingpeoplewithgreatjobs.com#CA",
+      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@66.163.114.166:443?allowInsecure=1&sni=blog.findconnectwithemployersandbuildprofessionalnetwork.com&type=tcp#US",
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "216.152.147.93",
+      "host": "66.163.114.166",
       "port": 443,
-      "tunnel_ms": 161.63,
-      "http_status": "204"
-    },
-    {
-      "config": "vless://1f8cf47a-b66a-4916-979f-26edfcf44eea@185.95.231.156:443?flow=xtls-rprx-vision&fp=random&host=www.apple.com&pbk=8eXftARun6KH38UZhuqIfPR1VF2DLS9RMBZEnF5k6To&security=reality&sid=a3a578ab&sni=www.apple.com&type=tcp#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-1332%20%F0%9F%87%BA%F0%9F%87%B8",
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "185.95.231.156",
-      "port": 443,
-      "tunnel_ms": 170.41,
-      "http_status": "204"
-    },
-    {
-      "config": "vless://729dd5f2-f5ff-4070-8c10-863eceded0b1@195.123.235.177:443?flow=xtls-rprx-vision&fp=chrome&host=%2F%3Ftelegram--v2ray_confiig&pbk=5B83otQ5ZQwtBFhR7xzsGJRXflkFKRJpQguYbE5JWGI&security=reality&sid=c85d029f5e8eb393&sni=gateway.icloud.com&type=tcp#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-1335%20%F0%9F%87%BA%F0%9F%87%B8",
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "195.123.235.177",
-      "port": 443,
-      "tunnel_ms": 177.2,
-      "http_status": "204"
-    },
-    {
-      "config": "vless://00144519-7e0d-476b-8d28-435576af9262@167.17.69.171:443?alpn=channel%40networld_vpn-channel%40networld_vpn-channel%40networld_vpn-channel%40networld_vpn-channel%40networld_vpn-channel%40networld_vpn-channel%40networld_vpn-channel%40networld_vpn%D1%89%D2%97&flow=xtls-rprx-vision&pbk=ALT8hIGeZEhi0sQFbXP_ntBg8Xo-v7i0YCLrqTnBxRk&security=reality&sid=0990d22f&sni=www.cloudflare.com&type=tcp#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-2050%20%F0%9F%87%BA%F0%9F%87%B8",
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "167.17.69.171",
-      "port": 443,
-      "tunnel_ms": 177.59,
+      "tunnel_ms": 181.55,
       "http_status": "204"
     },
     {
@@ -981,79 +949,111 @@
       "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
       "host": "170.101.101.112",
       "port": 443,
-      "tunnel_ms": 187.22,
+      "tunnel_ms": 196.44,
       "http_status": "204"
     },
     {
-      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@66.163.114.166:443?allowInsecure=1&sni=blog.findconnectwithemployersandbuildprofessionalnetwork.com&type=tcp#US",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "66.163.114.166",
-      "port": 443,
-      "tunnel_ms": 194.57,
+      "config": "vmess://eyJhZGQiOiI2Ny4yMjAuOTUuMyIsImFpZCI6IjAiLCJhbHBuIjoiIiwiZnAiOiIiLCJob3N0IjoiIiwiaWQiOiJmOGM4ZGMzZC0wZDM3LTQ2YjAtOGIzNC1hNzIzMjg4MmZjZmUiLCJuZXQiOiJ0Y3AiLCJwYXRoIjoiIiwicG9ydCI6IjE4MDAwIiwicHMiOiJAZmlsZW1iYWQiLCJzY3kiOiJhdXRvIiwic25pIjoiIiwidGxzIjoiIiwidHlwZSI6Im5vbmUiLCJ2IjoiMiJ9",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/vmess.txt",
+      "host": "67.220.95.3",
+      "port": 18000,
+      "tunnel_ms": 217.5,
       "http_status": "204"
     },
     {
-      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@216.152.156.81:443?allowInsecure=1&sni=www.healthcarejobshubenhancemedicalprofessionalskillstoday.com#🇺🇸",
-      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
-      "host": "216.152.156.81",
-      "port": 443,
-      "tunnel_ms": 201.48,
-      "http_status": "204"
-    },
-    {
-      "config": "vless://dc620cd6-a9d8-4a0f-8f18-006b895db77e@66.70.179.198:2053?fp=chrome&path=%2F&pbk=k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU&security=reality&sid=83f8317a948bb769&sni=www.cloudflare.com&type=tcp#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-2573%20%F0%9F%87%A8%F0%9F%87%A6",
+      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@216.152.156.49:443?security=tls&headerType=none&type=tcp&sni=cdn.healthcarejobshubenhancemedicalprofessionalskillstoday.com#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-1292%20%F0%9F%87%BA%F0%9F%87%B8",
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "66.70.179.198",
-      "port": 2053,
-      "tunnel_ms": 210.98,
+      "host": "216.152.156.49",
+      "port": 443,
+      "tunnel_ms": 241.74,
       "http_status": "204"
     },
     {
-      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@169.197.140.214:443?security=tls&insecure=0&headerType=none&type=tcp&allowInsecure=0&sni=courses.discoverfreshgraduatejobsstartyourprofessionaljourney.com#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-747%20%F0%9F%87%BA%F0%9F%87%B8",
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@169.197.140.214:443?security=tls&sni=courses.discoverfreshgraduatejobsstartyourprofessionaljourney.com&type=tcp&headerType=none#US",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
       "host": "169.197.140.214",
       "port": 443,
-      "tunnel_ms": 216.75,
+      "tunnel_ms": 250.42,
       "http_status": "204"
     },
     {
-      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@169.197.140.224:443?sni=resources.discoverfreshgraduatejobsstartyourprofessionaljourney.com&type=tcp#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-1773%20%F0%9F%87%BA%F0%9F%87%B8",
+      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@66.163.112.142:443?security=tls&sni=cdn.unlockyourfuturefindyourperfectcareer.com&type=tcp#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-857%20%F0%9F%87%BA%F0%9F%87%B8",
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "169.197.140.224",
+      "host": "66.163.112.142",
       "port": 443,
-      "tunnel_ms": 233.41,
+      "tunnel_ms": 263.57,
       "http_status": "204"
     },
     {
-      "config": "vless://49996e29-93c5-4975-b56f-792acbbf3444@188.114.98.0:443?encryption=none&security=tls&type=ws&host=jyfrj1cims.dev.onappjet.com&path=%2Fjx-yjkteysq815pzp&sni=jyfrj1cims.dev.onappjet.com&alpn=http%2F1.1&fp=unsafe&cs=TLS_AES_256_GCM_SHA384%3ATLS_CHACHA20_POLY1305_SHA256%3ATLS_AES_128_GCM_SHA256%3ATLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384%3ATLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384%3ATLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256%3ATLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256%3ATLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256%3ATLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256%3ATLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA%3ATLS_ECDHE_RSA_WITH_AES_256_CBC_SHA%3ATLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256%3ATLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256&fm=%7B%22tcp%22%3A%20%5B%7B%22type%22%3A%20%22fragment%22%2C%20%22settings%22%3A%20%7B%22packets%22%3A%20%22tlshello%22%2C%20%22lengths%22%3A%20%5B%220%22%2C%20%22104%22%2C%20%221%22%5D%2C%20%22delays%22%3A%20%5B%220%22%5D%2C%20%22maxSplit%22%3A%20%220%22%7D%7D%2C%7B%22type%22%3A%20%22fragment%22%2C%20%22settings%22%3A%20%7B%22packets%22%3A%20%221-1%22%2C%20%22lengths%22%3A%20%5B%22114%22%2C%20%221%22%5D%2C%20%22delays%22%3A%20%5B%221%22%5D%2C%20%22maxSplit%22%3A%20%2211%22%7D%7D%5D%7D#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-2639%20%F0%9F%87%BA%F0%9F%87%B8",
+      "config": "trojan://242a3d8eee5e4ed1a6bfa4141d549a25@216.106.186.66:443?allowInsecure=1&sni=www.findlocaljobnetworkandbuildcommunityconnections.com#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-1666%20%F0%9F%87%BA%F0%9F%87%B8",
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "216.106.186.66",
+      "port": 443,
+      "tunnel_ms": 267.39,
+      "http_status": "204"
+    },
+    {
+      "config": "trojan://lk59gDrTm2@www.777061.xyz:18603?allowInsecure=1&sni=www.777061.xyz&type=tcp#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-941%20%F0%9F%87%BA%F0%9F%87%B8",
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "www.777061.xyz",
+      "port": 18603,
+      "tunnel_ms": 300.44,
+      "http_status": "204"
+    },
+    {
+      "config": "vless://11f654d8-8ee6-4663-8fc6-26f2a128b519@adheres-scruple.quick-cdn.net:443?&security=tls&fp=chrome&alpn=http%2F1.1&sni=adheres-scruple.quick-cdn.net&type=ws&headerType=none&host=adheres-scruple.quick-cdn.net&path=%2Fws#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-2227%20%F0%9F%87%BA%F0%9F%87%B8",
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "adheres-scruple.quick-cdn.net",
+      "port": 443,
+      "tunnel_ms": 377.64,
+      "http_status": "204"
+    },
+    {
+      "config": "vless://bc058e69-0444-4c7b-98da-bd67f0b143da@130.12.242.106:443?security=reality&type=raw&packetEncoding=xudp&sni=deepl.com&fp=firefox&flow=xtls-rprx-vision&sid=15affa0af66dfc79&pbk=vnjp7zIK2H3CGdjSis_79KXqS6IG-opmpbETPUD-EC8&encryption=none#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-126%20%F0%9F%87%B3%F0%9F%87%B1",
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "130.12.242.106",
+      "port": 443,
+      "tunnel_ms": 525.41,
+      "http_status": "204"
+    },
+    {
+      "config": "vless://476bdb75-0d9b-49f2-a492-4cd68f594d32@ghosts-spasm.quick-cdn.net:443?&security=tls&fp=chrome&packet-encoding=xudp&alpn=http/1.1&sni=ghosts-spasm.quick-cdn.net&type=ws&headerType=none&host=ghosts-spasm.quick-cdn.net&path=/ws#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-2248%20%F0%9F%87%BA%F0%9F%87%B8",
+      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
+      "host": "ghosts-spasm.quick-cdn.net",
+      "port": 443,
+      "tunnel_ms": 540.59,
+      "http_status": "204"
+    },
+    {
+      "config": "trojan://humanity@188.114.98.0:443?path=%2Fassignment%3Fed&security=tls&alpn=http%2F1.1&insecure=0&host=www.calmlunch.com&fp=unsafe&type=ws&allowInsecure=0&sni=www.calmlunch.com#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-578%20%F0%9F%87%AB%F0%9F%87%B7",
       "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
       "host": "188.114.98.0",
       "port": 443,
-      "tunnel_ms": 242.19,
+      "tunnel_ms": 577.36,
       "http_status": "204"
     },
     {
-      "config": "trojan://dba20dcb635e430fa4d3bfc303a149d2@216.106.186.32:443?fp=chrome&security=tls&sni=blog.findlocaljobnetworkandbuildcommunityconnections.com&type=tcp#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-2551%20%F0%9F%87%BA%F0%9F%87%B8",
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "216.106.186.32",
+      "config": "trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@64.176.7.205:443?security=tls&sni=advanceyouremploymentskillsandcareerdevelopmenthub.com&type=tcp&headerType=none#%F0%9F%8F%B3%EF%B8%8F%20ShatakVPN%20321930",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "64.176.7.205",
       "port": 443,
-      "tunnel_ms": 261.67,
+      "tunnel_ms": 601.84,
       "http_status": "204"
     },
     {
-      "config": "trojan://242a3d8eee5e4ed1a6bfa4141d549a25@www.findlocaljobnetworkandbuildcommunityconnections.com:443?allowInsecure=1&sni=www.findlocaljobnetworkandbuildcommunityconnections.com&type=tcp#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-1398%20%F0%9F%87%BA%F0%9F%87%B8",
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "www.findlocaljobnetworkandbuildcommunityconnections.com",
+      "config": "trojan://humanity@188.114.97.6:443?path=/assignment&security=tls&insecure=0&host=www.calmlunch.com&ech=ip.gs+udp://8.8.8.8&type=ws&allowInsecure=0&sni=www.calmlunch.com#hamedp71%3A%3A%F0%9F%87%AB%F0%9F%87%B7",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "188.114.97.6",
       "port": 443,
-      "tunnel_ms": 314.7,
+      "tunnel_ms": 620.09,
       "http_status": "204"
     },
     {
-      "config": "vless://cb2dbb6a-a1ea-4023-9ace-6466cee57241@51.81.203.63:443?security=reality&type=tcp&packetEncoding=none&allowInsecure=1&sni=www.icloud.com&fp=firefox&flow=xtls-rprx-vision&sid=4477382ff6d3d41c&pbk=nqwCf6oW49tEtmQ0EzxigZ0uu1pg0E30CS54G40Iti0#%D8%B9%D8%B6%D9%88%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%B4%D9%88%DB%8C%D8%AF%20%40ShadowProxy66%20-2703%20%F0%9F%87%BA%F0%9F%87%B8",
-      "source": "https://sub.shadowproxy66.workers.dev/sub/736218dc-3cdf-4e93-bb5b-1d726418e43e",
-      "host": "51.81.203.63",
+      "config": "trojan://humanity@www.speedtest.net:443?security=tls&sni=www.calmlunch.com&ech=ip.gs%2Budp%3A%2F%2F8.8.8.8&type=ws&host=www.calmlunch.com&path=%2Fassignment#hamedp71%3A%3A%F0%9F%87%AB%F0%9F%87%B7",
+      "source": "https://github.com/hamedcode/port-based-v2ray-configs#sub/trojan.txt",
+      "host": "www.speedtest.net",
       "port": 443,
-      "tunnel_ms": 319.37,
+      "tunnel_ms": 622.43,
       "http_status": "204"
     }
   ],
