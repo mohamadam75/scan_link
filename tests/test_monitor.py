@@ -17,6 +17,11 @@ class ConfigParsingTests(unittest.TestCase):
         self.assertTrue(found[0].startswith("vless://"))
         self.assertTrue(found[1].startswith("trojan://"))
 
+    def test_fingerprint_ignores_display_name_and_query_order(self):
+        first = "vless://uuid@example.com:443?security=tls&type=ws#one"
+        second = "vless://uuid@example.com:443?type=ws&security=tls#two"
+        self.assertEqual(monitor.config_fingerprint(first), monitor.config_fingerprint(second))
+
     def test_parses_vless_endpoint_with_query(self):
         self.assertEqual(
             monitor.endpoint("vless://uuid@example.com:443?security=tls#name"),
