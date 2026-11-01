@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="نمایش و دریافت کانفیگ‌های عمومی VPN با تشخیص اپراتور اینترنت">
+  <title>Scan Link | کانفیگ متناسب با اپراتور</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="صفحه اصلی"><span class="brand-mark">S</span><span>scan<span class="accent">_</span>link</span></a>
+      <a class="repo-link" href="https://github.com/mohamadam75/scan_link" target="_blank" rel="noreferrer">مشاهده پروژه <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow"><span class="pulse"></span> فهرست زنده کانفیگ‌ها</div>
+      <h1>اتصال مناسب <span class="accent">شبکه‌ات</span> رو پیدا کن</h1>
+      <p class="intro">اپراتورت رو تشخیص می‌دیم و فهرست مربوط به همون شبکه رو نشون می‌دیم. هر زمان خواستی می‌تونی دستی تغییرش بدی.</p>
+    </section>
+
+    <section class="detect-card" aria-live="polite">
+      <div class="detect-icon">⌁</div>
+      <div class="detect-copy">
+        <span class="muted small">اپراتور شناسایی‌شده</span>
+        <strong id="detected-name">در حال بررسی شبکه…</strong>
+        <span id="detect-detail" class="muted small">برای تشخیص، نام ISP از سرویس مکان‌یابی IP پرسیده می‌شود.</span>
+      </div>
+      <button id="retry-detect" class="quiet-button" type="button">تشخیص دوباره</button>
+    </section>
+
+    <section class="operator-section">
+      <div class="section-heading">
+        <div><span class="muted small">انتخاب شبکه</span><h2>اپراتورت چیه؟</h2></div>
+        <span class="manual-hint">قابل تغییر در هر زمان</span>
+      </div>
+      <div class="operator-grid" role="group" aria-label="انتخاب اپراتور">
+        <button class="operator-button" data-operator="hamrah-aval" type="button"><span class="operator-symbol">هم</span><span>همراه اول</span><small>MCI</small></button>
+        <button class="operator-button" data-operator="irancell" type="button"><span class="operator-symbol">ای</span><span>ایرانسل</span><small>MTN</small></button>
+        <button class="operator-button" data-operator="mokhaberat" type="button"><span class="operator-symbol">مخ</span><span>مخابرات</span><small>TCI / ثابت</small></button>
+      </div>
+    </section>
+
+    <section class="list-section">
+      <div class="list-heading">
+        <div><span class="muted small">فهرست انتخاب‌شده</span><h2 id="list-title">کانفیگ‌های همراه اول</h2></div>
+        <span id="config-count" class="count-pill">…</span>
+      </div>
+      <div class="notice" id="quality-notice"><strong>نکته مهم:</strong> این فایل‌ها فعلاً کانفیگ‌های عمومی موفق در تست تونل GitHub هستند، نه کانفیگ‌های تأییدشده روی اپراتور انتخابی. برای تأیید واقعی باید از همان شبکه آزمایش شوند.</div>
+      <div id="loading" class="loading">در حال دریافت فهرست…</div>
+      <div id="config-list" class="config-list"></div>
+      <div class="list-actions">
+        <button id="copy-all" class="primary-button" type="button" disabled>کپی همه کانفیگ‌ها</button>
+        <button id="download-all" class="secondary-button" type="button" disabled>دانلود فایل اشتراک</button>
+      </div>
+    </section>
+
+    <section class="stats-grid" aria-label="آمار آخرین بررسی">
+      <div class="stat-card"><span class="muted small">کانفیگ‌های یکتا</span><strong id="stat-total">—</strong></div>
+      <div class="stat-card"><span class="muted small">تست‌شده</span><strong id="stat-tested">—</strong></div>
+      <div class="stat-card"><span class="muted small">تونل موفق</span><strong id="stat-working">—</strong></div>
+      <div class="stat-card"><span class="muted small">آخرین بروزرسانی</span><strong id="stat-updated" class="date-stat">—</strong></div>
+    </section>
+
+    <footer>
+      <p>تشخیص اپراتور ممکن است به‌دلیل VPN، پراکسی یا اطلاعات ناقص IP اشتباه باشد. در این حالت اپراتور را دستی انتخاب کن.</p>
+      <p>برای تشخیص اپراتور، IP عمومی شما با سرویس شخص ثالث ipwho.is بررسی می‌شود. <a href="https://ipwho.is/" target="_blank" rel="noreferrer">اطلاعات سرویس</a></p>
+      <p><a href="https://github.com/mohamadam75/scan_link/actions" target="_blank" rel="noreferrer">وضعیت اجرای آزمایش‌ها</a> · <a href="https://github.com/mohamadam75/scan_link" target="_blank" rel="noreferrer">کد منبع</a></p>
+    </footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
