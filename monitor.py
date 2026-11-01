@@ -174,6 +174,7 @@ def config_fingerprint(config: str) -> str:
         try:
             raw = base64.urlsafe_b64decode(token + "=" * (-len(token) % 4))
             obj = json.loads(raw.decode("utf-8"))
+            obj.pop("ps", None)  # display name is not part of connection identity
             return "vmess://" + json.dumps(obj, sort_keys=True, separators=(",", ":"))
         except Exception:
             return scheme + "://" + token
