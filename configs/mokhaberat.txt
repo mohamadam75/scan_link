@@ -1,7 +1,7 @@
 # No ISP-specific verification is available for Mokhaberat fixed-line; do not treat this as an operator-tested list.
-# Generic Xray tunnel successes from GitHub runner: 19
+# Generic Xray tunnel successes from GitHub runner: 24
+vmess://eyJhZGQiOiIxNzIuMTExLjM4LjI0NiIsImFpZCI6IjAiLCJhbHBuIjoiIiwiaG9zdCI6IiIsImlkIjoiNWMwNDBmMWQtNDVkYi00M2JkLThkNDYtZTQ5NTBlNDMzNzM1IiwibmV0IjoidGNwIiwicGF0aCI6IiIsInBvcnQiOiIxMjcwIiwicHMiOiJoYW1lZHA3MTo68J+HuvCfh7giLCJzY3kiOiJhdXRvIiwic25pIjoieG1maGxweS5jb20iLCJ0bHMiOiJ0bHMiLCJ0eXBlIjoibm9uZSIsInYiOiIyIiwic2tpcC1jZXJ0LXZlcmlmeSI6dHJ1ZX0
 trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@216.152.155.23:443?sni=courses.nextjobopportunityandclaimyouridealrole.com&type=tcp#US
-vless://1f8cf47a-b66a-4916-979f-26edfcf44eea@185.95.231.156:443?encryption=none&flow=xtls-rprx-vision&fp=chrome&pbk=8eXftARun6KH38UZhuqIfPR1VF2DLS9RMBZEnF5k6To&security=reality&sid=a3a578ab&sni=www.apple.com&type=tcp#Channel%20id%3A%20%40ShadowProxy66-854%20%F0%9F%87%BA%F0%9F%87%B8
-trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@66.163.114.166:443?allowInsecure=1&sni=blog.findconnectwithemployersandbuildprofessionalnetwork.com&type=tcp#US
-vless://00144519-7e0d-476b-8d28-435576af9262@167.17.69.171:443?alpn=channel%40networld_vpn-channel%40networld_vpn-channel%40networld_vpn-channel%40networld_vpn-channel%40networld_vpn-channel%40networld_vpn-channel%40networld_vpn-channel%40networld_vpn%C3%B9%C2%80&flow=xtls-rprx-vision&pbk=ALT8hIGeZEhi0sQFbXP_ntBg8Xo-v7i0YCLrqTnBxRk&security=reality&sid=0990d22f&sni=www.cloudflare.com&type=tcp#Channel%20id%3A%20%40ShadowProxy66-421%20%F0%9F%87%BA%F0%9F%87%B8
-trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@66.163.112.76:443?security=tls&insecure=0&headerType=none&type=tcp&allowInsecure=0&sni=api.unlockyourfuturefindyourperfectcareer.com#@VPsave
+vmess://eyJ2IjpudWxsLCJwcyI6IlVTIPCfh7rwn4e4IHwgQFJheWRpa2FseCB8IDNBNjEwQyIsImFkZCI6IjM4LjkxLjEwNy40OSIsInBvcnQiOjE4MDAwLCJpZCI6ImY4YzhkYzNkLTBkMzctNDZiMC04YjM0LWE3MjMyODgyZmNmZSIsImFpZCI6IjAiLCJzY3kiOiJhdXRvIiwibmV0IjoidGNwIiwidHlwZSI6bnVsbCwiaG9zdCI6bnVsbCwiYWxwbiI6bnVsbCwicGF0aCI6Ii8iLCJ0bHMiOiJub25lIiwic25pIjpudWxsLCJmcCI6bnVsbCwibmFtZSI6IlVTIPCfh7rwn4e4IHwgQFJheWRpa2FseCB8IDNBNjEwQyJ9
+trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@216.152.156.81:443?allowInsecure=1&sni=www.healthcarejobshubenhancemedicalprofessionalskillstoday.com#🇺🇸
+trojan://0ab6c98dae3b48e8b9c4a776b6c9c19a@66.163.122.26:443?security=tls&insecure=0&headerType=none&type=tcp&allowInsecure=0&sni=blog.searchnationwidecareerchangehelperandguidancetoday.com#hamedp71%3A%3A%F0%9F%87%BA%F0%9F%87%B8
