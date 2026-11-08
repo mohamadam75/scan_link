@@ -37,7 +37,7 @@ jobs:
       - name: Install Xray core
         run: |
           set -euo pipefail
-          curl -fsSL https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip -o /tmp/xray.zip
+          curl --fail --show-error --location --silent --retry 6 --retry-all-errors --retry-delay 5 --retry-max-time 180 https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip -o /tmp/xray.zip
           python -m zipfile -e /tmp/xray.zip /tmp/xray-bin
           sudo install /tmp/xray-bin/xray /usr/local/bin/xray
           xray version
